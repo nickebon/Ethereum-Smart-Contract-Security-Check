@@ -1,0 +1,25 @@
+# ── Core scanners ──────────────────────────────────────────────────────────────
+slither-analyzer>=0.9.0
+mythril>=0.23.15
+
+# ── Solidity compiler management ───────────────────────────────────────────────
+solc-select>=1.0.4
+
+# ── Mythril / symbolic execution deps (Python 3.11 compatible) ─────────────────
+numpy>=1.24.0,<2.0.0        # mythril needs numpy; 1.19 is too old for 3.11
+z3-solver>=4.12.0
+
+# ── Data handling & reporting ──────────────────────────────────────────────────
+pandas>=2.0.0
+pyyaml>=6.0
+
+# ── LLM integration (your synthesis layer) ─────────────────────────────────────
+openai>=1.0.0                # Azure OpenAI client
+python-dotenv>=1.0.0         # load .env for API keys
+
+# ── Dashboard ──────────────────────────────────────────────────────────────────
+streamlit>=1.32.0
+
+# ── Utilities ──────────────────────────────────────────────────────────────────
+requests>=2.31.0
+tqdm>=4.66.0                 # progress bars for batch runs
