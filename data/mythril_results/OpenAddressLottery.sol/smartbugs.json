@@ -1,0 +1,50 @@
+{
+    "docker": {
+        "command": null,
+        "detach": true,
+        "entrypoint": "'/sb/bin/do_solidity.sh' '/sb/OpenAddressLottery.sol' '120' '/sb/bin' '0'",
+        "image": "smartbugs/mythril:0.24.8",
+        "user": 0,
+        "volumes": {
+            "/var/folders/t3/rqr1dgbx2ydcq5kt6nj2hgxm0000gn/T/tmpc5kctn_z": {
+                "bind": "/sb",
+                "mode": "rw"
+            }
+        }
+    },
+    "filename": "samples/0.4.x/OpenAddressLottery.sol",
+    "platform": {
+        "cpu": "Apple M4",
+        "python": "3.13.2.final.0 (64 bit)",
+        "release": "24.6.0",
+        "smartbugs": "2.0.16",
+        "system": "Darwin",
+        "version": "Darwin Kernel Version 24.6.0: Wed Nov  5 21:34:00 PST 2025; root:xnu-11417.140.69.705.2~1/RELEASE_ARM64_T8132"
+    },
+    "result": {
+        "duration": 104.13065910339355,
+        "exit_code": 1,
+        "logs": "result.log",
+        "output": null,
+        "start": 1771481396.26463
+    },
+    "runid": "20260219_0609",
+    "solc": "0.4.26",
+    "tool": {
+        "bin": "scripts",
+        "command": null,
+        "cpu_quota": null,
+        "entrypoint": "'$BIN/do_solidity.sh' '$FILENAME' '$TIMEOUT' '$BIN' '$MAIN'",
+        "id": "mythril-0.24.8",
+        "image": "smartbugs/mythril:0.24.8",
+        "info": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities.",
+        "mem_limit": null,
+        "mode": "solidity",
+        "name": "Mythril",
+        "origin": "https://github.com/ConsenSys/mythril",
+        "output": null,
+        "parser": "parser.py",
+        "solc": true,
+        "version": "0.24.8"
+    }
+}
