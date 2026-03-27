@@ -1,0 +1,50 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Controlled array length vulnerability",
+      "swc_id": "SWC-128",
+      "severity": "high",
+      "location": "Rubixi contract, lines 10-162",
+      "finding_ids": [
+        0
+      ],
+      "reasoning": "Finding describes a user-controlled array length, which is a standalone issue."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Unchecked send in multiple functions",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "Multiple functions (collectPercentOfFees, collectFeesInEther, collectAllFees, addPayout)",
+      "finding_ids": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "reasoning": "All findings describe unchecked send operations in different functions, which share the same vulnerability type."
+    },
+    {
+      "vuln_id": 3,
+      "name": "Reentrancy in multiple functions",
+      "swc_id": "SWC-107",
+      "severity": "medium",
+      "location": "Multiple functions (collectFeesInEther, addPayout, collectPercentOfFees, collectAllFees)",
+      "finding_ids": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "reasoning": "All findings describe reentrancy vulnerabilities in different functions, with external calls followed by state changes."
+    }
+  ],
+  "summary": {
+    "total_input": 34,
+    "unique_count": 3,
+    "duplicates_removed": 7
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 34
+}

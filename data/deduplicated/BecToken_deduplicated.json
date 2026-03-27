@@ -1,0 +1,88 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, lines 7",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings reference outdated Solidity versions and known issues with version constraints."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Improper Naming Convention",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Multiple functions, various lines",
+      "finding_ids": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "reasoning": "All findings reference parameters not following mixedCase naming conventions across multiple functions."
+    },
+    {
+      "vuln_id": 3,
+      "name": "Optimization Opportunities",
+      "swc_id": null,
+      "severity": "optimization",
+      "location": "Global, lines 289-292",
+      "finding_ids": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "reasoning": "All findings suggest certain state variables should be declared constant for optimization purposes."
+    },
+    {
+      "vuln_id": 4,
+      "name": "Batch Transfer Function Optimization",
+      "swc_id": null,
+      "severity": "optimization",
+      "location": "batchTransfer() function, lines 261-274",
+      "finding_ids": [
+        26
+      ],
+      "reasoning": "The finding suggests the batchTransfer function should be declared external for optimization."
+    },
+    {
+      "vuln_id": 5,
+      "name": "Literal with Too Many Digits",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "BecToken constructor, lines 297-300",
+      "finding_ids": [
+        21
+      ],
+      "reasoning": "The finding highlights the use of a literal with too many digits in the constructor."
+    }
+  ],
+  "summary": {
+    "total_input": 27,
+    "unique_count": 5,
+    "duplicates_removed": 22
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 27
+}

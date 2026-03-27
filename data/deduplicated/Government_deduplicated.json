@@ -1,0 +1,125 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Controlled array length manipulation",
+      "swc_id": "SWC-128",
+      "severity": "high",
+      "location": "Government contract, lines 10-124",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings describe user-controlled array length manipulation in the same contract and lines, differing only in the specific array being manipulated."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Unchecked return value from external calls",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "lendGovernmentMoney function, lines 31-86",
+      "finding_ids": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        22
+      ],
+      "reasoning": "All findings describe unchecked return values from external calls within the same function and overlapping lines."
+    },
+    {
+      "vuln_id": 3,
+      "name": "Reentrancy in lendGovernmentMoney",
+      "swc_id": "SWC-107",
+      "severity": "informational",
+      "location": "lendGovernmentMoney function, lines 31-86",
+      "finding_ids": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "reasoning": "All findings describe potential reentrancy issues in the same function and lines, with external calls and state changes identified."
+    },
+    {
+      "vuln_id": 4,
+      "name": "Dependence on predictable environment variable",
+      "swc_id": "SWC-116",
+      "severity": "low",
+      "location": "fallback function, line 35",
+      "finding_ids": [
+        18
+      ],
+      "reasoning": "This finding describes reliance on block.timestamp for control flow, which is specific to the fallback function."
+    },
+    {
+      "vuln_id": 5,
+      "name": "Missing zero-check on assignment",
+      "swc_id": "SWC-110",
+      "severity": "low",
+      "location": "inheritToNextGeneration function, lines 111-113",
+      "finding_ids": [
+        9
+      ],
+      "reasoning": "This finding highlights a missing zero-check on assignment in a specific function and lines."
+    },
+    {
+      "vuln_id": 6,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        11,
+        12
+      ],
+      "reasoning": "Both findings describe the use of an outdated Solidity version, differing only in the specific details provided."
+    },
+    {
+      "vuln_id": 7,
+      "name": "Assertion violation",
+      "swc_id": "SWC-110",
+      "severity": "medium",
+      "location": "Multiple functions, lines 16-90",
+      "finding_ids": [
+        19,
+        20,
+        23,
+        24
+      ],
+      "reasoning": "All findings describe assertion violations across different functions and lines, indicating potential invariant issues."
+    },
+    {
+      "vuln_id": 8,
+      "name": "Timestamp dependence in lendGovernmentMoney",
+      "swc_id": "SWC-116",
+      "severity": "low",
+      "location": "lendGovernmentMoney function, lines 31-86",
+      "finding_ids": [
+        10
+      ],
+      "reasoning": "This finding describes the use of block.timestamp for comparisons in the lendGovernmentMoney function."
+    },
+    {
+      "vuln_id": 9,
+      "name": "Cache array length in loop",
+      "swc_id": "SWC-128",
+      "severity": "optimization",
+      "location": "Government contract, line 94",
+      "finding_ids": [
+        17
+      ],
+      "reasoning": "This finding suggests caching the array length in a loop for optimization, specific to a single line."
+    }
+  ],
+  "summary": {
+    "total_input": 25,
+    "unique_count": 9,
+    "duplicates_removed": 16
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 25
+}

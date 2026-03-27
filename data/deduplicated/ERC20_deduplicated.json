@@ -1,0 +1,45 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, lines 7",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings reference outdated Solidity versions and compatibility issues."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Unused State Variable in ERC20",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "ERC20 contract, lines 74-130",
+      "finding_ids": [
+        2
+      ],
+      "reasoning": "Finding highlights unused state variable _totalSupply in the ERC20 contract."
+    },
+    {
+      "vuln_id": 3,
+      "name": "State Variable Should Be Constant",
+      "swc_id": null,
+      "severity": "optimization",
+      "location": "ERC20 contract, line 84",
+      "finding_ids": [
+        3
+      ],
+      "reasoning": "Finding suggests _totalSupply should be marked constant for optimization."
+    }
+  ],
+  "summary": {
+    "total_input": 4,
+    "unique_count": 3,
+    "duplicates_removed": 1
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 4
+}

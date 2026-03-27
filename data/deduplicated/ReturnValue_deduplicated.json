@@ -1,0 +1,47 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Unchecked low-level call in callnotchecked()",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "callnotchecked() function, lines 15-18",
+      "finding_ids": [
+        0,
+        1,
+        5
+      ],
+      "reasoning": "Findings 0, 1, and 5 all reference the low-level call callee.call() in callnotchecked() on line 17, with related issues such as ignoring the return value and missing a zero-check."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Findings 2 and 3 both highlight the use of an outdated Solidity version (0.4.25) with known issues."
+    },
+    {
+      "vuln_id": 3,
+      "name": "Low-level call in callchecked()",
+      "swc_id": "SWC-104",
+      "severity": "informational",
+      "location": "callchecked() function, lines 11-13",
+      "finding_ids": [
+        4
+      ],
+      "reasoning": "Finding 4 describes a low-level call in callchecked() on line 12, which is distinct from the issues in callnotchecked()."
+    }
+  ],
+  "summary": {
+    "total_input": 6,
+    "unique_count": 3,
+    "duplicates_removed": 3
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 6
+}

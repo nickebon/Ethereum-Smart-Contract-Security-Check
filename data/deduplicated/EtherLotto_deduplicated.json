@@ -1,0 +1,48 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in play()",
+      "swc_id": "SWC-107",
+      "severity": "high",
+      "location": "play() function, lines 33-57",
+      "finding_ids": [
+        0,
+        7
+      ],
+      "reasoning": "Both findings reference external calls (bank.transfer and msg.sender.transfer) in the play() function, which can lead to reentrancy."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Weak PRNG in play()",
+      "swc_id": "SWC-120",
+      "severity": "high",
+      "location": "play() function, lines 33-57",
+      "finding_ids": [
+        1,
+        3,
+        4
+      ],
+      "reasoning": "These findings all relate to the use of a weak PRNG (block.timestamp) in the play() function, including its use in comparisons and the deprecated sha3() function."
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Global",
+      "finding_ids": [
+        5,
+        6
+      ],
+      "reasoning": "Both findings highlight issues with the outdated Solidity version, including known bugs and the need to upgrade."
+    }
+  ],
+  "summary": {
+    "total_input": 8,
+    "unique_count": 3,
+    "duplicates_removed": 5
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 8
+}

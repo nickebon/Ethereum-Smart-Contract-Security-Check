@@ -1,0 +1,56 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Controlled array length manipulation",
+      "swc_id": "SWC-128",
+      "severity": "high",
+      "location": "dividends.push() in SmartBillions.sol, lines 118-771",
+      "finding_ids": [
+        0,
+        1,
+        2
+      ],
+      "reasoning": "All findings reference the same issue of user-controlled array length manipulation in the dividends array."
+    },
+    {
+      "vuln_id": 2,
+      "name": "Reentrancy in multiple functions",
+      "swc_id": "SWC-107",
+      "severity": "high",
+      "location": "Multiple functions (playSystem, coldStore, invest, pay), various lines",
+      "finding_ids": [
+        67,
+        68,
+        69,
+        70
+      ],
+      "reasoning": "All findings describe reentrancy vulnerabilities due to external calls followed by state changes in different functions."
+    },
+    {
+      "vuln_id": 3,
+      "name": "Incorrect equality checks",
+      "swc_id": "SWC-123",
+      "severity": "medium",
+      "location": "Multiple functions (betOf, betPrize, putHash, won, addHashes), various lines",
+      "finding_ids": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "reasoning": "All findings highlight dangerous strict equality checks that could lead to logical errors or vulnerabilities."
+    }
+  ],
+  "summary": {
+    "total_input": 82,
+    "unique_count": 3,
+    "duplicates_removed": 79
+  },
+  "llm_model": "gpt-4o",
+  "input_count": 82
+}
