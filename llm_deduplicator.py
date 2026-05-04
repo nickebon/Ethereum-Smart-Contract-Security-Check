@@ -87,6 +87,13 @@ class LLMDeduplicator:
                 json_content = raw_content
 
             result = json.loads(json_content)
+            usage = response.usage
+            result['tokens_prompt'] = usage.prompt_tokens
+            result['tokens_completion'] = usage.completion_tokens
+            result['tokens_total'] = usage.total_tokens
+            result['estimated_cost_usd'] = round(
+                (usage.prompt_tokens * 0.0000025) + (usage.completion_tokens * 0.000010), 5
+)
             
             # Add metadata
             result['llm_model'] = self.deployment

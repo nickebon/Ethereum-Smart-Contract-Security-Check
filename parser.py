@@ -3,7 +3,8 @@ ETH-Check Output Parser
 =======================
 Parses real output from:
   - Slither  → produced by: slither <contract>.sol --json <output>.json
-  - Mythril  → produced by: SmartBugs result.log (JSON lines format)
+  - Mythril  → produced by: myth analyze -o json (direct)
+               OR SmartBugs result.log format
 
 Normalises both into a unified Finding dataclass for LLM deduplication.
 
@@ -160,38 +161,59 @@ def parse_slither(json_path: str) -> list[Finding]:
 
 def parse_mythril(log_path: str) -> list[Finding]:
     """
-    Parse Mythril result.log (SmartBugs format) into Finding objects.
+    Parse Mythril JSON output into Finding objects.
 
-    Mythril log structure (single JSON object):
-      {
-        "success": true,
-        "issues": [
-          {
-            "title": "External Call To User-Supplied Address",
-            "swc-id": "107",
-            "severity": "Low",
-            "description": "...",
-            "contract": "SimpleDAO",
-            "function": "withdraw(uint256)",
-            "lineno": 19,
-            "code": "msg.sender.call.value(amount)()"
-          }
-        ]
-      }
+    Handles two formats:
+      1. Direct myth analyze -o json output:
+         { "success": true/null, "issues": [...], "error": null }
+
+      2. SmartBugs result.log format:
+         { "success": true, "issues": [...] }
+
+    Both formats share the same issue field names:
+      "title", "swc-id", "severity", "description",
+      "contract", "function", "lineno"
     """
     with open(log_path) as f:
         data = json.load(f)
 
-    if not data.get("success"):
+    # Handle top-level list (some SmartBugs outputs wrap in a list)
+    if isinstance(data, list):
+        if not data:
+            print(f"[WARN] Mythril output is empty list in {log_path}")
+            return []
+        data = data[0]
+
+    # Check for error field (direct myth output uses "error" not "success")
+    error = data.get("error")
+    if error:
+        print(f"[WARN] Mythril reported error in {log_path}: {error}")
+        return []
+
+    # success field may be None in direct myth output — treat None as ok
+    success = data.get("success")
+    if success is False:
         print(f"[WARN] Mythril reported failure in {log_path}")
         return []
 
+    issues = data.get("issues", [])
+    if not issues:
+        print(f"[INFO] Mythril found no issues in {log_path}")
+        return []
+
     findings = []
-    for issue in data.get("issues", []):
-        swc_id = str(issue.get("swc-id", ""))
+    for issue in issues:
+        swc_id = str(issue.get("swc-id", "")).strip()
         severity = issue.get("severity", "Unknown").lower()
         lineno = issue.get("lineno")
         lines = [lineno] if lineno else []
+
+        # description may be a string or nested dict {"head": ..., "tail": ...}
+        desc_raw = issue.get("description", "")
+        if isinstance(desc_raw, dict):
+            description = (desc_raw.get("head", "") + " " + desc_raw.get("tail", "")).strip()
+        else:
+            description = str(desc_raw).strip()
 
         ethtrust = MYTHRIL_SWC_TO_ETHTRUST.get(swc_id, "P0")
 
@@ -204,7 +226,7 @@ def parse_mythril(log_path: str) -> list[Finding]:
             contract=issue.get("contract"),
             function=issue.get("function"),
             lines=lines,
-            description=issue.get("description", "").strip(),
+            description=description,
             raw={k: v for k, v in issue.items() if k != "tx_sequence"},  # skip bytecode noise
         ))
 
