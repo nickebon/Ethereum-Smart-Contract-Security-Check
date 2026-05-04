@@ -5,6 +5,7 @@ Takes combined findings JSON, uses GPT-4 to group duplicates
 
 import os
 import json
+import yaml
 from typing import List, Dict
 from openai import AzureOpenAI
 from dotenv import load_dotenv
@@ -99,6 +100,8 @@ class LLMDeduplicator:
             result['llm_model'] = self.deployment
             result['input_count'] = len(findings)
             
+            result = self._inject_p_categories(result)
+            
             return result
             
         except json.JSONDecodeError as e:
@@ -187,6 +190,48 @@ RULES:
 - Use SWC-107 for reentrancy, SWC-104 for unchecked returns, etc.
 - Output MUST be valid JSON with no additional text
 """
+
+    def _build_swc_lookup(self) -> Dict[str, str]:
+        """
+        Read configs/p_mapping.yaml and build SWC ID -> P-key lookup dict.
+        First match wins (does not overwrite existing keys).
+        
+        Returns:
+            Dict mapping SWC IDs to P-keys (e.g., {"SWC-107": "P1"})
+        """
+        lookup = {}
+        
+        config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'configs', 'p_mapping.yaml')
+        with open(config_path) as f:
+            config = yaml.safe_load(f)
+        
+        for p_key in sorted(config.keys()):
+            p_config = config[p_key]
+            mythril_swc = p_config.get('mythril_swc', [])
+            
+            for swc_id in mythril_swc:
+                if swc_id not in lookup:  # First match wins
+                    lookup[swc_id] = p_key
+        
+        return lookup
+    
+    def _inject_p_categories(self, result: Dict) -> Dict:
+        """
+        Inject ethtrust_rule (P-category) into each unique vulnerability.
+        
+        Args:
+            result: Result dict from LLM deduplication
+        
+        Returns:
+            Modified result with ethtrust_rule set for each vulnerability
+        """
+        lookup = self._build_swc_lookup()
+        
+        for vuln in result.get('unique_vulnerabilities', []):
+            swc_id = vuln.get('swc_id', '')
+            vuln['ethtrust_rule'] = lookup.get(swc_id, 'P0')
+        
+        return result
 
 
 def main():
