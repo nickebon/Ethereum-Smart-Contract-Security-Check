@@ -284,7 +284,7 @@ def main():
         print(f"    Reasoning: {vuln.get('reasoning')}")
     
     # Save output
-    output_path = sys.argv[1].replace('_combined.json', '_deduplicated.json')
+    output_path = sys.argv[1].replace('_combined.json', '_deduplicated.json').replace(os.path.join('data', 'combined'), os.path.join('data', 'deduplicated'))
     with open(output_path, 'w') as f:
         json.dump(result, f, indent=2)
     
