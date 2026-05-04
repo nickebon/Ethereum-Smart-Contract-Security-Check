@@ -40,6 +40,10 @@
     "unique_count": 3,
     "duplicates_removed": 1
   },
+  "tokens_prompt": 1032,
+  "tokens_completion": 290,
+  "tokens_total": 1322,
+  "estimated_cost_usd": 0.00548,
   "llm_model": "gpt-4o",
   "input_count": 4
 }

@@ -23,12 +23,12 @@
         2,
         3
       ],
-      "reasoning": "Findings 2 and 3 both highlight the use of an outdated Solidity version (0.4.25) with known issues."
+      "reasoning": "Findings 2 and 3 both highlight the use of an outdated Solidity version (0.4.25) with known vulnerabilities."
     },
     {
       "vuln_id": 3,
       "name": "Low-level call in callchecked()",
-      "swc_id": "SWC-104",
+      "swc_id": null,
       "severity": "informational",
       "location": "callchecked() function, lines 11-13",
       "finding_ids": [
@@ -42,6 +42,10 @@
     "unique_count": 3,
     "duplicates_removed": 3
   },
+  "tokens_prompt": 1064,
+  "tokens_completion": 377,
+  "tokens_total": 1441,
+  "estimated_cost_usd": 0.00643,
   "llm_model": "gpt-4o",
   "input_count": 6
 }

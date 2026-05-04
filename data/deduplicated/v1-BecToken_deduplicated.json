@@ -53,7 +53,7 @@
         24,
         25
       ],
-      "reasoning": "All findings suggest certain state variables should be declared constant for optimization purposes."
+      "reasoning": "All findings suggest marking state variables as constant for optimization purposes."
     },
     {
       "vuln_id": 4,
@@ -64,7 +64,7 @@
       "finding_ids": [
         26
       ],
-      "reasoning": "The finding suggests the batchTransfer function should be declared external for optimization."
+      "reasoning": "The finding suggests declaring the batchTransfer function as external for optimization."
     },
     {
       "vuln_id": 5,
@@ -83,6 +83,10 @@
     "unique_count": 5,
     "duplicates_removed": 22
   },
+  "tokens_prompt": 2910,
+  "tokens_completion": 517,
+  "tokens_total": 3427,
+  "estimated_cost_usd": 0.01245,
   "llm_model": "gpt-4o",
   "input_count": 27
 }
