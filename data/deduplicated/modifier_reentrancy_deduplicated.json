@@ -1,0 +1,54 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in airDrop()",
+      "swc_id": "SWC-107",
+      "severity": "medium",
+      "location": "airDrop() function, lines 15-21",
+      "finding_ids": [
+        0,
+        6,
+        8,
+        9
+      ],
+      "reasoning": "Findings reference external calls and state access in airDrop() function, indicating a reentrancy vulnerability.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "External call in supportsToken()",
+      "swc_id": "SWC-107",
+      "severity": "low",
+      "location": "supportsToken() function, line 42",
+      "finding_ids": [
+        5
+      ],
+      "reasoning": "Single finding about an external call to a user-supplied address in supportsToken().",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 3,
+      "name": "External call in call(address)",
+      "swc_id": "SWC-107",
+      "severity": "low",
+      "location": "call(address) function, line 47",
+      "finding_ids": [
+        7
+      ],
+      "reasoning": "Single finding about an external call to a user-supplied address in call(address).",
+      "ethtrust_rule": "P1"
+    }
+  ],
+  "summary": {
+    "total_input": 10,
+    "unique_count": 3,
+    "duplicates_removed": 7
+  },
+  "tokens_prompt": 1627,
+  "tokens_completion": 335,
+  "tokens_total": 1962,
+  "estimated_cost_usd": 0.00742,
+  "llm_model": "gpt-4o",
+  "input_count": 10
+}

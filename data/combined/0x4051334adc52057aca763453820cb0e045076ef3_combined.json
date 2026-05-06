@@ -1,0 +1,1272 @@
+{
+  "total_findings": 13,
+  "slither_count": 10,
+  "mythril_count": 3,
+  "findings": [
+    {
+      "tool": "slither",
+      "check": "unchecked-lowlevel",
+      "swc_id": null,
+      "ethtrust_rule": "P9",
+      "severity": "medium",
+      "contract": "airdrop",
+      "function": "transfer",
+      "lines": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "description": "airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19) ignores return value by caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transfer",
+            "source_mapping": {
+              "start": 130,
+              "length": 378,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "airdrop",
+                "source_mapping": {
+                  "start": 103,
+                  "length": 407,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "transfer(address,address,address[],uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "caddress.call(id,from,_tos[i],v)",
+            "source_mapping": {
+              "start": 438,
+              "length": 32,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                16
+              ],
+              "starting_column": 13,
+              "ending_column": 45
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19) ignores return value by caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)\n",
+        "markdown": "[airdrop.transfer(address,address,address[],uint256)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19) ignores return value by [caddress.call(id,from,_tos[i],v)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L16)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19",
+        "id": "867e2dd73f58f3447a8e8984d44ab13da2ce5628ff0d09d33138aab35c4dc05a",
+        "check": "unchecked-lowlevel",
+        "impact": "Medium",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "missing-zero-check",
+      "swc_id": null,
+      "ethtrust_rule": "P2",
+      "severity": "low",
+      "contract": null,
+      "function": null,
+      "lines": [
+        11,
+        16
+      ],
+      "description": "airdrop.transfer(address,address,address[],uint256).caddress (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11) lacks a zero-check on :\n\t\t- caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)",
+      "raw": {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "caddress",
+            "source_mapping": {
+              "start": 161,
+              "length": 16,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11
+              ],
+              "starting_column": 36,
+              "ending_column": 52
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "caddress.call(id,from,_tos[i],v)",
+            "source_mapping": {
+              "start": 438,
+              "length": 32,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                16
+              ],
+              "starting_column": 13,
+              "ending_column": 45
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "airdrop.transfer(address,address,address[],uint256).caddress (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11) lacks a zero-check on :\n\t\t- caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)\n",
+        "markdown": "[airdrop.transfer(address,address,address[],uint256).caddress](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11) lacks a zero-check on :\n\t\t- [caddress.call(id,from,_tos[i],v)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L16)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11",
+        "id": "88230e0d8c6964ad71ddd0b73001b750a29b2e682e7b805e5bfbc955306d0cb3",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "missing-zero-check",
+      "swc_id": null,
+      "ethtrust_rule": "P2",
+      "severity": "low",
+      "contract": null,
+      "function": null,
+      "lines": [
+        11,
+        16
+      ],
+      "description": "airdrop.transfer(address,address,address[],uint256).from (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11) lacks a zero-check on :\n\t\t- caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)",
+      "raw": {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "from",
+            "source_mapping": {
+              "start": 148,
+              "length": 12,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11
+              ],
+              "starting_column": 23,
+              "ending_column": 35
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "caddress.call(id,from,_tos[i],v)",
+            "source_mapping": {
+              "start": 438,
+              "length": 32,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                16
+              ],
+              "starting_column": 13,
+              "ending_column": 45
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "airdrop.transfer(address,address,address[],uint256).from (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11) lacks a zero-check on :\n\t\t- caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)\n",
+        "markdown": "[airdrop.transfer(address,address,address[],uint256).from](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11) lacks a zero-check on :\n\t\t- [caddress.call(id,from,_tos[i],v)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L16)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11",
+        "id": "ba2e803d4c96864da7904cf40729a6f19a1614a75fa63bcc5eb6386c42633d9a",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "calls-loop",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "low",
+      "contract": "airdrop",
+      "function": "transfer",
+      "lines": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "description": "airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19) has external calls inside a loop: caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transfer",
+            "source_mapping": {
+              "start": 130,
+              "length": 378,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "airdrop",
+                "source_mapping": {
+                  "start": 103,
+                  "length": 407,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "transfer(address,address,address[],uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "caddress.call(id,from,_tos[i],v)",
+            "source_mapping": {
+              "start": 438,
+              "length": 32,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                16
+              ],
+              "starting_column": 13,
+              "ending_column": 45
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19) has external calls inside a loop: caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)\n",
+        "markdown": "[airdrop.transfer(address,address,address[],uint256)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19) has external calls inside a loop: [caddress.call(id,from,_tos[i],v)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L16)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19",
+        "id": "d88c5679b9fed1575a02d179cd2e616b397596d7ee61a3331a340d38eb3f17d0",
+        "check": "calls-loop",
+        "impact": "Low",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [],
+      "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.",
+      "raw": {
+        "elements": [],
+        "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "ac1462fa4f49aef585a564df70976321999b9c7b6cf45f2bd4ae2df81eafff02",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        7
+      ],
+      "description": "Version constraint ^0.4.24 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData.\nIt is used by:\n\t- ^0.4.24 (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#7)",
+      "raw": {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.24",
+            "source_mapping": {
+              "start": 76,
+              "length": 24,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".24"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.24 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData.\nIt is used by:\n\t- ^0.4.24 (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#7)\n",
+        "markdown": "Version constraint ^0.4.24 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData.\nIt is used by:\n\t- [^0.4.24](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L7)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L7",
+        "id": "cae8254242e65f5ce2645b18f14d7b5c562d3b41c1d211b9df812f61c4f1b102",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "low-level-calls",
+      "swc_id": null,
+      "ethtrust_rule": "P8",
+      "severity": "informational",
+      "contract": "airdrop",
+      "function": "transfer",
+      "lines": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "description": "Low level call in airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19):\n\t- caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transfer",
+            "source_mapping": {
+              "start": 130,
+              "length": 378,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "airdrop",
+                "source_mapping": {
+                  "start": 103,
+                  "length": 407,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "transfer(address,address,address[],uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "caddress.call(id,from,_tos[i],v)",
+            "source_mapping": {
+              "start": 438,
+              "length": 32,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                16
+              ],
+              "starting_column": 13,
+              "ending_column": 45
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19):\n\t- caddress.call(id,from,_tos[i],v) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#16)\n",
+        "markdown": "Low level call in [airdrop.transfer(address,address,address[],uint256)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19):\n\t- [caddress.call(id,from,_tos[i],v)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L16)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19",
+        "id": "45291b9daf75f63da0c59e173cd6d8cd0e31217d27c08f6da3a1d94168c72896",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "naming-convention",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        11
+      ],
+      "description": "Parameter airdrop.transfer(address,address,address[],uint256)._tos (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11) is not in mixedCase",
+      "raw": {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "_tos",
+            "source_mapping": {
+              "start": 178,
+              "length": 14,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11
+              ],
+              "starting_column": 53,
+              "ending_column": 67
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transfer",
+                "source_mapping": {
+                  "start": 130,
+                  "length": 378,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "airdrop",
+                    "source_mapping": {
+                      "start": 103,
+                      "length": 407,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "transfer(address,address,address[],uint256)"
+                }
+              }
+            },
+            "additional_fields": {
+              "target": "parameter",
+              "convention": "mixedCase"
+            }
+          }
+        ],
+        "description": "Parameter airdrop.transfer(address,address,address[],uint256)._tos (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11) is not in mixedCase\n",
+        "markdown": "Parameter [airdrop.transfer(address,address,address[],uint256)._tos](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11) is not in mixedCase\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11",
+        "id": "34479f1cc4e502220d2d7edcd6a553ebda8837e9da3dcbc6abc45751370812f1",
+        "check": "naming-convention",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "naming-convention",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "description": "Contract airdrop (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#9-21) is not in CapWords",
+      "raw": {
+        "elements": [
+          {
+            "type": "contract",
+            "name": "airdrop",
+            "source_mapping": {
+              "start": 103,
+              "length": 407,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ],
+              "starting_column": 1,
+              "ending_column": 0
+            },
+            "additional_fields": {
+              "target": "contract",
+              "convention": "CapWords"
+            }
+          }
+        ],
+        "description": "Contract airdrop (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#9-21) is not in CapWords\n",
+        "markdown": "Contract [airdrop](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L9-L21) is not in CapWords\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L9-L21",
+        "id": "f6c181c1c84a5fffe13f58a915ebcff056bbca45af597c576945a2a69f43c2a5",
+        "check": "naming-convention",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "external-function",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "optimization",
+      "contract": "airdrop",
+      "function": "transfer",
+      "lines": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "description": "transfer(address,address,address[],uint256) should be declared external:\n\t- airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transfer",
+            "source_mapping": {
+              "start": 130,
+              "length": 378,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+              "is_dependency": false,
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "airdrop",
+                "source_mapping": {
+                  "start": 103,
+                  "length": 407,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "transfer(address,address,address[],uint256)"
+            }
+          }
+        ],
+        "description": "transfer(address,address,address[],uint256) should be declared external:\n\t- airdrop.transfer(address,address,address[],uint256) (data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#11-19)\n",
+        "markdown": "transfer(address,address,address[],uint256) should be declared external:\n\t- [airdrop.transfer(address,address,address[],uint256)](data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol#L11-L19",
+        "id": "4ae232d45e59df45ed2cc4510ea7cccb35f563401a4c3e96f84383174044e71f",
+        "check": "external-function",
+        "impact": "Optimization",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "External Call To User-Supplied Address",
+      "swc_id": "107",
+      "ethtrust_rule": "P1",
+      "severity": "low",
+      "contract": "airdrop",
+      "function": "transfer(address,address,address[],uint256)",
+      "lines": [
+        16
+      ],
+      "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+      "raw": {
+        "address": 652,
+        "code": "caddress.call(id,from,_tos[i],v)",
+        "contract": "airdrop",
+        "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+        "filename": "/sb/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+        "function": "transfer(address,address,address[],uint256)",
+        "lineno": 16,
+        "max_gas_used": 75980,
+        "min_gas_used": 2765,
+        "severity": "Low",
+        "sourceMap": "438:32",
+        "swc-id": "107",
+        "title": "External Call To User-Supplied Address"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Multiple Calls in a Single Transaction",
+      "swc_id": "113",
+      "ethtrust_rule": "P0",
+      "severity": "low",
+      "contract": "airdrop",
+      "function": "transfer(address,address,address[],uint256)",
+      "lines": [
+        16
+      ],
+      "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+      "raw": {
+        "address": 652,
+        "code": "caddress.call(id,from,_tos[i],v)",
+        "contract": "airdrop",
+        "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+        "filename": "/sb/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+        "function": "transfer(address,address,address[],uint256)",
+        "lineno": 16,
+        "max_gas_used": 75980,
+        "min_gas_used": 2765,
+        "severity": "Low",
+        "sourceMap": "438:32",
+        "swc-id": "113",
+        "title": "Multiple Calls in a Single Transaction"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Unchecked return value from external call.",
+      "swc_id": "104",
+      "ethtrust_rule": "P9",
+      "severity": "medium",
+      "contract": "airdrop",
+      "function": "transfer(address,address,address[],uint256)",
+      "lines": [
+        16
+      ],
+      "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+      "raw": {
+        "address": 652,
+        "code": "caddress.call(id,from,_tos[i],v)",
+        "contract": "airdrop",
+        "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+        "filename": "/sb/data/capstone_dataset/unchecked_low_level_calls/0x4051334adc52057aca763453820cb0e045076ef3.sol",
+        "function": "transfer(address,address,address[],uint256)",
+        "lineno": 16,
+        "max_gas_used": 40125,
+        "min_gas_used": 1755,
+        "severity": "Medium",
+        "sourceMap": "438:32",
+        "swc-id": "104",
+        "title": "Unchecked return value from external call."
+      }
+    }
+  ]
+}

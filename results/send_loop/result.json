@@ -1,0 +1,11 @@
+{
+  "contract": "send_loop",
+  "category": "denial_of_service",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol",
+  "raw_alert_count": 0,
+  "unique_vuln_count": 0,
+  "reduction_pct": 0.0,
+  "tokens_total": 0,
+  "estimated_cost_usd": 0.0,
+  "deduplicated_findings": []
+}

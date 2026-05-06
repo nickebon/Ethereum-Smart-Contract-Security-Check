@@ -1,0 +1,53 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Arbitrary ETH Transfer in solve()",
+      "swc_id": "SWC-105",
+      "severity": "high",
+      "location": "solve() function, lines 14-19",
+      "finding_ids": [
+        0,
+        4
+      ],
+      "reasoning": "Both findings reference the solve() function and the ETH transfer on lines 14-19. The 'arbitrary-send-eth' and 'external-function' checks are logically related to the same vulnerability.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Deprecated sha3() usage",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "solve() function, line 17",
+      "finding_ids": [
+        1
+      ],
+      "reasoning": "This finding is specific to the use of a deprecated standard (sha3()) and does not overlap with other findings.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity Version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Global",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings reference issues with the Solidity version used in the contract. They are logically related and describe the same underlying vulnerability.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 5,
+    "unique_count": 3,
+    "duplicates_removed": 2
+  },
+  "tokens_prompt": 1010,
+  "tokens_completion": 349,
+  "tokens_total": 1359,
+  "estimated_cost_usd": 0.00602,
+  "llm_model": "gpt-4o",
+  "input_count": 5
+}

@@ -1,0 +1,80 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Weak PRNG in fallback()",
+      "swc_id": "SWC-120",
+      "severity": "high",
+      "location": "fallback() function, lines 15-24",
+      "finding_ids": [
+        1,
+        2
+      ],
+      "reasoning": "Both findings reference the use of 'now % 15 == 0' as a weak PRNG mechanism.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Timestamp dependence in fallback()",
+      "swc_id": "SWC-116",
+      "severity": "low",
+      "location": "fallback() function, lines 15-24",
+      "finding_ids": [
+        3,
+        6,
+        7
+      ],
+      "reasoning": "All findings reference the use of block.timestamp for control flow decisions or comparisons.",
+      "ethtrust_rule": "P4"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Unprotected Ether withdrawal in fallback()",
+      "swc_id": "SWC-105",
+      "severity": "high",
+      "location": "fallback() function, lines 15-24",
+      "finding_ids": [
+        0,
+        9
+      ],
+      "reasoning": "Both findings describe the ability for arbitrary users to withdraw Ether from the contract.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 4,
+      "name": "Outdated Solidity version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "global, line 7",
+      "finding_ids": [
+        4,
+        5
+      ],
+      "reasoning": "Both findings reference the outdated Solidity version 0.4.25.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 5,
+      "name": "Transaction order dependence in fallback()",
+      "swc_id": "SWC-114",
+      "severity": "medium",
+      "location": "fallback() function, lines 15-24",
+      "finding_ids": [
+        8
+      ],
+      "reasoning": "This finding describes a race condition vulnerability related to transaction order dependence.",
+      "ethtrust_rule": "P4"
+    }
+  ],
+  "summary": {
+    "total_input": 10,
+    "unique_count": 5,
+    "duplicates_removed": 5
+  },
+  "tokens_prompt": 1640,
+  "tokens_completion": 503,
+  "tokens_total": 2143,
+  "estimated_cost_usd": 0.00913,
+  "llm_model": "gpt-4o",
+  "input_count": 10
+}

@@ -1,0 +1,176 @@
+{
+  "total_findings": 4,
+  "slither_count": 3,
+  "mythril_count": 1,
+  "findings": [
+    {
+      "tool": "slither",
+      "check": "suicidal",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "high",
+      "contract": "SimpleSuicide",
+      "function": "sudicideAnyone",
+      "lines": [
+        12,
+        13,
+        14
+      ],
+      "description": "SimpleSuicide.sudicideAnyone() (data/capstone_dataset/access_control/simple_suicide.sol#12-14) allows anyone to destruct the contract",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "sudicideAnyone",
+            "source_mapping": {
+              "start": 301,
+              "length": 61,
+              "filename_relative": "data/capstone_dataset/access_control/simple_suicide.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/access_control/simple_suicide.sol",
+              "filename_short": "data/capstone_dataset/access_control/simple_suicide.sol",
+              "is_dependency": false,
+              "lines": [
+                12,
+                13,
+                14
+              ],
+              "starting_column": 3,
+              "ending_column": 4
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SimpleSuicide",
+                "source_mapping": {
+                  "start": 239,
+                  "length": 126,
+                  "filename_relative": "data/capstone_dataset/access_control/simple_suicide.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/access_control/simple_suicide.sol",
+                  "filename_short": "data/capstone_dataset/access_control/simple_suicide.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "sudicideAnyone()"
+            }
+          }
+        ],
+        "description": "SimpleSuicide.sudicideAnyone() (data/capstone_dataset/access_control/simple_suicide.sol#12-14) allows anyone to destruct the contract\n",
+        "markdown": "[SimpleSuicide.sudicideAnyone()](data/capstone_dataset/access_control/simple_suicide.sol#L12-L14) allows anyone to destruct the contract\n",
+        "first_markdown_element": "data/capstone_dataset/access_control/simple_suicide.sol#L12-L14",
+        "id": "69eb6b7405159092b2daa327018c42016cb70a30fb833f163e8c8e863c2b938e",
+        "check": "suicidal",
+        "impact": "High",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        8
+      ],
+      "description": "Version constraint ^0.4.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction\n\t- IdentityPrecompileReturnIgnored\n\t- HighOrderByteCleanStorage\n\t- OptimizerStaleKnowledgeAboutSHA3\n\t- LibrariesNotCallableFromPayableFunctions.\nIt is used by:\n\t- ^0.4.0 (data/capstone_dataset/access_control/simple_suicide.sol#8)",
+      "raw": {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.0",
+            "source_mapping": {
+              "start": 214,
+              "length": 23,
+              "filename_relative": "data/capstone_dataset/access_control/simple_suicide.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/access_control/simple_suicide.sol",
+              "filename_short": "data/capstone_dataset/access_control/simple_suicide.sol",
+              "is_dependency": false,
+              "lines": [
+                8
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction\n\t- IdentityPrecompileReturnIgnored\n\t- HighOrderByteCleanStorage\n\t- OptimizerStaleKnowledgeAboutSHA3\n\t- LibrariesNotCallableFromPayableFunctions.\nIt is used by:\n\t- ^0.4.0 (data/capstone_dataset/access_control/simple_suicide.sol#8)\n",
+        "markdown": "Version constraint ^0.4.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction\n\t- IdentityPrecompileReturnIgnored\n\t- HighOrderByteCleanStorage\n\t- OptimizerStaleKnowledgeAboutSHA3\n\t- LibrariesNotCallableFromPayableFunctions.\nIt is used by:\n\t- [^0.4.0](data/capstone_dataset/access_control/simple_suicide.sol#L8)\n",
+        "first_markdown_element": "data/capstone_dataset/access_control/simple_suicide.sol#L8",
+        "id": "2e3b9ff954ac02dcf0dc6ef269f564e5b27b218c5a557d5a2dd54f03a4d68e5c",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [],
+      "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.",
+      "raw": {
+        "elements": [],
+        "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "ac1462fa4f49aef585a564df70976321999b9c7b6cf45f2bd4ae2df81eafff02",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Unprotected Selfdestruct",
+      "swc_id": "106",
+      "ethtrust_rule": "P3",
+      "severity": "high",
+      "contract": "SimpleSuicide",
+      "function": "sudicideAnyone()",
+      "lines": [
+        13
+      ],
+      "description": "Any sender can cause the contract to self-destruct.\nAny sender can trigger execution of the SELFDESTRUCT instruction to destroy this contract account and withdraw its balance to an arbitrary address. Review the transaction trace generated for this issue and make sure that appropriate security controls are in place to prevent unrestricted access.",
+      "raw": {
+        "address": 112,
+        "code": "selfdestruct(msg.sender)",
+        "contract": "SimpleSuicide",
+        "description": "Any sender can cause the contract to self-destruct.\nAny sender can trigger execution of the SELFDESTRUCT instruction to destroy this contract account and withdraw its balance to an arbitrary address. Review the transaction trace generated for this issue and make sure that appropriate security controls are in place to prevent unrestricted access.",
+        "filename": "/sb/data/capstone_dataset/access_control/simple_suicide.sol",
+        "function": "sudicideAnyone()",
+        "lineno": 13,
+        "max_gas_used": 227,
+        "min_gas_used": 132,
+        "severity": "High",
+        "sourceMap": "333:24",
+        "swc-id": "106",
+        "title": "Unprotected Selfdestruct"
+      }
+    }
+  ]
+}

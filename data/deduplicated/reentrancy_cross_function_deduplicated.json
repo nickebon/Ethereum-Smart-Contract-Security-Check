@@ -1,0 +1,40 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in withdrawBalance()",
+      "swc_id": "SWC-107",
+      "severity": "medium",
+      "location": "withdrawBalance() function, lines 24-26",
+      "finding_ids": [
+        0,
+        2
+      ],
+      "reasoning": "Finding 0 describes an external call to a user-supplied address, and Finding 2 describes a state access after the external call. Both are logically related and indicate a reentrancy vulnerability.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Transaction Order Dependence in withdrawBalance()",
+      "swc_id": "SWC-114",
+      "severity": "medium",
+      "location": "withdrawBalance() function, line 24",
+      "finding_ids": [
+        1
+      ],
+      "reasoning": "Finding 1 describes a transaction order dependence issue, which is distinct from the reentrancy issue described in Findings 0 and 2. It is kept separate as it represents a different vulnerability.",
+      "ethtrust_rule": "P4"
+    }
+  ],
+  "summary": {
+    "total_input": 3,
+    "unique_count": 2,
+    "duplicates_removed": 1
+  },
+  "tokens_prompt": 759,
+  "tokens_completion": 281,
+  "tokens_total": 1040,
+  "estimated_cost_usd": 0.00471,
+  "llm_model": "gpt-4o",
+  "input_count": 3
+}

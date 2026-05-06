@@ -1,0 +1,88 @@
+[16:33:06] Pipeline started for contract: unchecked_return_value
+[16:33:06] Category: unchecked_low_level_calls
+[16:33:06] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol
+[16:33:06] Step 1: Running auto_solc_use.sh...
+[16:33:07] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 1s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity 0.4.25;
+  - exact : 0.4.25
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 0s)
+[DONE] All steps completed in 0s
+
+[16:33:07] Step 2: Running Slither...
+[16:33:07] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:33:07] Slither return code: 255
+[16:33:07] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/unchecked_return_value.slither.json
+[16:33:07] Slither output file exists: True
+[16:33:07] Slither output file size: 29021 bytes
+[16:33:07] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls' running
+Compilation warnings/errors on /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol:
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol:17:5: Warning: Return value of low-level calls not used.
+    callee.call();
+    ^-----------^
+
+
+Detector: unchecked-lowlevel
+ReturnValue.callnotchecked(address) (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#15-18) ignores return value by callee.call() (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+
+Detector: missing-zero-check
+ReturnValue.callnotchecked(address).callee (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#15) lacks a zero-check on :
+		- callee.call() (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: solc-version
+Version constraint 0.4.25 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ABIEncoderV2PackedStorage_0.4.x.
+It is used by:
+	- 0.4.25 (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#7)
+solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: low-level-calls
+Low level call in ReturnValue.callchecked(address) (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#11-13):
+	- require(bool)(callee.call()) (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#12)
+Low level call in ReturnValue.callnotchecked(address) (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#15-18):
+	- callee.call() (data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol analyzed (1 contracts with 101 detectors), 6 result(s) found
+
+[16:33:07] Slither found 6 issues
+[16:33:07] Step 3: Running Mythril via Docker...
+[16:33:07] Detected solc version: 0.4.25
+[16:33:07] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/unchecked_low_level_calls/unchecked_return_value.sol -o json --execution-timeout 60 --max-depth 80
+[16:33:18] Mythril found 3 issues
+[16:33:18] Step 4: Running parser...
+[16:33:18] Parser: 6 from Slither + 3 from Mythril = 9 total
+[16:33:18] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/unchecked_return_value_combined.json
+[16:33:18] Step 5: Running LLM deduplication...
+[16:33:23] LLM deduplication: 3 unique vulnerabilities, 1826 tokens, $0.00735
+[16:33:23] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/unchecked_return_value_deduplicated.json
+[16:33:23] Step 6: Writing final result JSON...
+[16:33:23] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/unchecked_return_value/result.json
+[16:33:23] Step 7: Updating summary.csv...
+[16:33:23] Appended entry to summary.csv
+[16:33:23] Pipeline complete (16.8s)

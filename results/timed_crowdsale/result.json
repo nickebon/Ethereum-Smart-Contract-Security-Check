@@ -1,0 +1,37 @@
+{
+  "contract": "timed_crowdsale",
+  "category": "time_manipulation",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation/timed_crowdsale.sol",
+  "raw_alert_count": 3,
+  "unique_vuln_count": 2,
+  "reduction_pct": 33.33,
+  "tokens_total": 1016,
+  "estimated_cost_usd": 0.00433,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Global",
+      "finding_ids": [
+        1,
+        2
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version (0.4.25) and recommend upgrading to a newer version.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Timestamp Dependence in isSaleFinished()",
+      "swc_id": "SWC-116",
+      "severity": "low",
+      "location": "isSaleFinished() function, lines 11-14",
+      "finding_ids": [
+        0
+      ],
+      "reasoning": "This finding highlights the use of block.timestamp for time-based logic, which can be manipulated by miners.",
+      "ethtrust_rule": "P4"
+    }
+  ]
+}

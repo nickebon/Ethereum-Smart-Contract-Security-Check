@@ -1,0 +1,71 @@
+[16:24:59] Pipeline started for contract: overflow_simple_add
+[16:24:59] Category: arithmetic
+[16:24:59] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/arithmetic/overflow_simple_add.sol
+[16:24:59] Step 1: Running auto_solc_use.sh...
+[16:25:00] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity 0.4.25;
+  - exact : 0.4.25
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 1s)
+[DONE] All steps completed in 1s
+
+[16:25:00] Step 2: Running Slither...
+[16:25:00] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:25:00] Slither return code: 255
+[16:25:00] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/overflow_simple_add.slither.json
+[16:25:00] Slither output file exists: True
+[16:25:00] Slither output file size: 4975 bytes
+[16:25:00] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/arithmetic/overflow_simple_add.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/arithmetic' running
+
+Detector: solc-version
+Version constraint 0.4.25 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ABIEncoderV2PackedStorage_0.4.x.
+It is used by:
+	- 0.4.25 (data/capstone_dataset/arithmetic/overflow_simple_add.sol#7)
+solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: naming-convention
+Contract Overflow_Add (data/capstone_dataset/arithmetic/overflow_simple_add.sol#9-16) is not in CapWords
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/arithmetic/overflow_simple_add.sol analyzed (1 contracts with 101 detectors), 3 result(s) found
+
+[16:25:00] Slither found 3 issues
+[16:25:00] Step 3: Running Mythril via Docker...
+[16:25:00] Detected solc version: 0.4.25
+[16:25:00] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/arithmetic/overflow_simple_add.sol -o json --execution-timeout 60 --max-depth 80
+[16:25:05] Mythril found 0 issues
+[16:25:05] Step 4: Running parser...
+[16:25:05] Parser: 3 from Slither + 0 from Mythril = 3 total
+[16:25:05] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/overflow_simple_add_combined.json
+[16:25:05] Step 5: Running LLM deduplication...
+[16:25:11] LLM deduplication: 2 unique vulnerabilities, 1001 tokens, $0.00429
+[16:25:11] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/overflow_simple_add_deduplicated.json
+[16:25:11] Step 6: Writing final result JSON...
+[16:25:11] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/overflow_simple_add/result.json
+[16:25:11] Step 7: Updating summary.csv...
+[16:25:11] Appended entry to summary.csv
+[16:25:11] Pipeline complete (12.3s)

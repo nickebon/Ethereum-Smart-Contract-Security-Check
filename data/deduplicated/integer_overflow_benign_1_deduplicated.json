@@ -1,0 +1,40 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, pragma directive",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings refer to the use of an outdated Solidity version and its associated risks.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Non-Constant State Variable",
+      "swc_id": null,
+      "severity": "optimization",
+      "location": "IntegerOverflowBenign1.count, line 13",
+      "finding_ids": [
+        2
+      ],
+      "reasoning": "This finding is unrelated to the others and highlights an optimization issue with a state variable.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 3,
+    "unique_count": 2,
+    "duplicates_removed": 1
+  },
+  "tokens_prompt": 739,
+  "tokens_completion": 218,
+  "tokens_total": 957,
+  "estimated_cost_usd": 0.00403,
+  "llm_model": "gpt-4o",
+  "input_count": 3
+}

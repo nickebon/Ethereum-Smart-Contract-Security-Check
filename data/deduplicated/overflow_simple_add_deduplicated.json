@@ -1,0 +1,40 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Compiler Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, lines 7",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity compiler version (0.4.25) and recommend upgrading. They are logically related and describe the same issue.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Non-standard Naming Convention",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Contract Overflow_Add, lines 9-16",
+      "finding_ids": [
+        2
+      ],
+      "reasoning": "This finding is unrelated to the others and highlights a naming convention issue specific to the Overflow_Add contract.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 3,
+    "unique_count": 2,
+    "duplicates_removed": 1
+  },
+  "tokens_prompt": 763,
+  "tokens_completion": 238,
+  "tokens_total": 1001,
+  "estimated_cost_usd": 0.00429,
+  "llm_model": "gpt-4o",
+  "input_count": 3
+}

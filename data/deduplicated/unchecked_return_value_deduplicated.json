@@ -1,0 +1,57 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Unchecked return value in callnotchecked()",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "callnotchecked() function, lines 15-18",
+      "finding_ids": [
+        0,
+        1,
+        5,
+        7,
+        8
+      ],
+      "reasoning": "These findings describe the unchecked return value vulnerability in the callnotchecked() function, with spatial proximity and logical relationships around the external call on line 17.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "External call to user-supplied address in callchecked()",
+      "swc_id": "SWC-105",
+      "severity": "low",
+      "location": "callchecked() function, line 12",
+      "finding_ids": [
+        4,
+        6
+      ],
+      "reasoning": "Both findings describe the external call to a user-supplied address in the callchecked() function, with agreement on vulnerability type and spatial proximity.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, line 7",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings highlight the outdated Solidity version 0.4.25, with agreement on vulnerability type and logical relationship.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 9,
+    "unique_count": 3,
+    "duplicates_removed": 6
+  },
+  "tokens_prompt": 1455,
+  "tokens_completion": 371,
+  "tokens_total": 1826,
+  "estimated_cost_usd": 0.00735,
+  "llm_model": "gpt-4o",
+  "input_count": 9
+}
