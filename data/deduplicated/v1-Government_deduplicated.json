@@ -5,16 +5,16 @@
       "name": "Controlled array length manipulation",
       "swc_id": "SWC-128",
       "severity": "high",
-      "location": "Government contract, lines 10-124",
+      "location": "Government.sol, lines 10-124",
       "finding_ids": [
         0,
         1
       ],
-      "reasoning": "Both findings describe user-controlled array length manipulation in the same contract and lines, differing only in the specific array being manipulated."
+      "reasoning": "Both findings describe user-controlled array length manipulation in the same contract and lines."
     },
     {
       "vuln_id": 2,
-      "name": "Unchecked return value from external calls",
+      "name": "Unchecked return values from external calls",
       "swc_id": "SWC-104",
       "severity": "medium",
       "location": "lendGovernmentMoney function, lines 31-86",
@@ -28,7 +28,7 @@
         8,
         22
       ],
-      "reasoning": "All findings describe unchecked return values from external calls within the same function and overlapping lines."
+      "reasoning": "All findings describe unchecked return values from external calls in the same function and overlapping lines."
     },
     {
       "vuln_id": 3,
@@ -42,7 +42,7 @@
         15,
         16
       ],
-      "reasoning": "All findings describe potential reentrancy issues in the same function and lines, with external calls and state changes identified."
+      "reasoning": "All findings describe potential reentrancy issues in the same function and overlapping lines."
     },
     {
       "vuln_id": 4,
@@ -53,7 +53,7 @@
       "finding_ids": [
         18
       ],
-      "reasoning": "This finding describes reliance on block.timestamp for control flow, which is specific to the fallback function."
+      "reasoning": "This finding describes reliance on block.timestamp for control flow in the fallback function."
     },
     {
       "vuln_id": 5,
@@ -64,19 +64,19 @@
       "finding_ids": [
         9
       ],
-      "reasoning": "This finding highlights a missing zero-check on assignment in a specific function and lines."
+      "reasoning": "This finding describes a missing zero-check on assignment in the specified lines."
     },
     {
       "vuln_id": 6,
       "name": "Outdated Solidity version",
       "swc_id": "SWC-102",
       "severity": "informational",
-      "location": "Contract-wide",
+      "location": "Government.sol, line 8",
       "finding_ids": [
         11,
         12
       ],
-      "reasoning": "Both findings describe the use of an outdated Solidity version, differing only in the specific details provided."
+      "reasoning": "Both findings describe the use of an outdated Solidity version."
     },
     {
       "vuln_id": 7,
@@ -90,7 +90,7 @@
         23,
         24
       ],
-      "reasoning": "All findings describe assertion violations across different functions and lines, indicating potential invariant issues."
+      "reasoning": "All findings describe assertion violations in different functions but are logically related to invariant checks."
     },
     {
       "vuln_id": 8,
@@ -101,18 +101,18 @@
       "finding_ids": [
         10
       ],
-      "reasoning": "This finding describes the use of block.timestamp for comparisons in the lendGovernmentMoney function."
+      "reasoning": "This finding describes timestamp dependence in the lendGovernmentMoney function."
     },
     {
       "vuln_id": 9,
       "name": "Cache array length in loop",
       "swc_id": "SWC-128",
       "severity": "optimization",
-      "location": "Government contract, line 94",
+      "location": "Government.sol, line 94",
       "finding_ids": [
         17
       ],
-      "reasoning": "This finding suggests caching the array length in a loop for optimization, specific to a single line."
+      "reasoning": "This finding describes an optimization issue with caching array length in a loop."
     }
   ],
   "summary": {
@@ -120,6 +120,10 @@
     "unique_count": 9,
     "duplicates_removed": 16
   },
+  "tokens_prompt": 6682,
+  "tokens_completion": 876,
+  "tokens_total": 7558,
+  "estimated_cost_usd": 0.02547,
   "llm_model": "gpt-4o",
   "input_count": 25
 }

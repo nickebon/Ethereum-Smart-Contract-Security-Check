@@ -12,7 +12,7 @@
         7,
         8
       ],
-      "reasoning": "All findings reference the external call on line 19 followed by state access or modification on line 20, indicating a reentrancy vulnerability."
+      "reasoning": "All findings reference the external call on line 19 followed by state access or modification on line 20, indicating a reentrancy issue."
     },
     {
       "vuln_id": 2,
@@ -23,7 +23,7 @@
       "finding_ids": [
         5
       ],
-      "reasoning": "This finding highlights the unchecked return value of the external call on line 19, which is distinct from the reentrancy issue."
+      "reasoning": "This finding specifically highlights the unchecked return value of the external call on line 19, which is distinct from the reentrancy issue."
     },
     {
       "vuln_id": 3,
@@ -42,6 +42,10 @@
     "unique_count": 3,
     "duplicates_removed": 6
   },
+  "tokens_prompt": 1444,
+  "tokens_completion": 356,
+  "tokens_total": 1800,
+  "estimated_cost_usd": 0.00717,
   "llm_model": "gpt-4o",
   "input_count": 9
 }

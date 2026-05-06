@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contract Audit Dashboard Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .architecture {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .layer {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .layer-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .layer-icon {
+            font-size: 24px;
+        }
+        
+        .components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .component {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .component:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+        }
+        
+        .component-name {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .component-desc {
+            color: #718096;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .arrow {
+            text-align: center;
+            font-size: 36px;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .badge-existing {
+            background: #c3dafe;
+            color: #2c5282;
+        }
+        
+        .badge-new {
+            background: #fef5e7;
+            color: #d68910;
+        }
+        
+        .badge-your-work {
+            background: #d4f4dd;
+            color: #276749;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #4a5568;
+        }
+        
+        .highlight-ethcheck {
+            border-left-color: #f59e0b;
+        }
+        
+        .highlight-llm {
+            border-left-color: #10b981;
+        }
+        
+        .highlight-dashboard {
+            border-left-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Smart Contract Security Analysis Pipeline</h1>
+        <p class="subtitle">Single-Contract LLM-Powered Vulnerability Deduplication</p>
+        
+        <div class="architecture">
+            
+            <!-- INPUT LAYER -->
+            <div class="layer">
+                <div class="layer-title">
+                    <span class="layer-icon">📄</span>
+                    Input Layer
+                </div>
+                <div class="components">
+                    <div class="component">
+                        <div class="component-name">Solidity Contract (.sol)</div>
+                        <div class="component-desc">Source code file and vulnerability category as command-line arguments</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <!-- ORCHESTRATION LAYER -->
+            <div class="layer highlight-ethcheck">
+                <div class="layer-title">
+                    <span class="layer-icon">🎯</span>
+                    Pipeline Orchestrator (run_pipeline.py)
+                    <span class="badge badge-your-work">CORE IMPLEMENTATION</span>
+                </div>
+                <div class="components">
+                    <div class="component">
+                        <div class="component-name">Step 1: Solc Detection</div>
+                        <div class="component-desc">Parses pragma to detect Solidity version (0.4.x–0.8.x) and switches solc</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Step 2: Slither Analysis</div>
+                        <div class="component-desc">Runs Slither static analyser from .venv, captures JSON output (detectors array)</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Step 3: Mythril via Docker</div>
+                        <div class="component-desc">Launches Docker container with solc binary volume mount, captures JSON (issues array)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <!-- PARSER LAYER -->
+            <div class="layer highlight-llm">
+                <div class="layer-title">
+                    <span class="layer-icon">🔄</span>
+                    Step 4: Parse & Combine Findings
+                    <span class="badge badge-your-work">IMPLEMENTED</span>
+                </div>
+                <div class="components">
+                    <div class="component">
+                        <div class="component-name">Parser (parse_slither, parse_mythril)</div>
+                        <div class="component-desc">Converts Slither/Mythril JSON to unified Finding objects</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Combiner (combine_and_save)</div>
+                        <div class="component-desc">Merges findings into combined_&lt;contract&gt;.json in data/combined/</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <!-- LLM DEDUPLICATION LAYER -->
+            <div class="layer highlight-llm">
+                <div class="layer-title">
+                    <span class="layer-icon">🤖</span>
+                    Step 5: LLM Deduplication &amp; P-Category Injection
+                    <span class="badge badge-your-work">YOUR CORE WORK</span>
+                </div>
+                <div class="components">
+                    <div class="component">
+                        <div class="component-name">Azure OpenAI GPT-4</div>
+                        <div class="component-desc">Semantic analysis to identify and group duplicate vulnerability alerts</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">SWC Mapper (llm_deduplicator.py)</div>
+                        <div class="component-desc">Reads configs/p_mapping.yaml, maps SWC IDs → P-keys (P1–P15), injects ethtrust_rule</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Result Enrichment</div>
+                        <div class="component-desc">Each unique vulnerability tagged with SWC ID, severity, P-category, and token usage</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <!-- RESULTS &amp; REPORTING LAYER -->
+            <div class="layer highlight-dashboard">
+                <div class="layer-title">
+                    <span class="layer-icon">📊</span>
+                    Steps 6–8: Results &amp; Reporting
+                    <span class="badge badge-your-work">IMPLEMENTED</span>
+                </div>
+                <div class="components">
+                    <div class="component">
+                        <div class="component-name">result.json</div>
+                        <div class="component-desc">Final report: raw alerts, unique vulns, reduction %, cost, deduplicated findings</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">summary.csv</div>
+                        <div class="component-desc">Single-row append per run; tracks contract, category, metrics across batches</div>
+                    </div>
+                    <div class="component">
+                        <div class="component-name">Timestamped Logging (run.log)</div>
+                        <div class="component-desc">Full pipeline trace: binary paths, return codes, file sizes, error messages</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <!-- OUTPUT LAYER -->
+            <div class="layer">
+                <div class="layer-title">
+                    <span class="layer-icon">✅</span>
+                    Output Layer
+                </div>
+                <div class="components">
+                    <div class="component">
+                        <div class="component-name">Deduplicated JSON Report</div>
+                        <div class="component-desc">Saved to data/deduplicated/&lt;contract&gt;_deduplicated.json with unique findings + P-categories</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <span class="badge badge-your-work">YOUR CORE WORK</span>
+                <span>LLM deduplication + P-category mapping (llm_deduplicator.py)</span>
+            </div>
+            <div class="legend-item">
+                <span class="badge badge-your-work">IMPLEMENTED</span>
+                <span>run_pipeline.py orchestrator + Steps 1–8 pipeline</span>
+            </div>
+            <div class="legend-item">
+                <span class="badge badge-existing">EXTERNAL</span>
+                <span>Slither, Mythril (Docker), Azure OpenAI API</span>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
+```
+
+---
+
+## What Changed in the Architecture
+
+**OLD (What you PLANNED to build):**
+```
+Contract → Tool Runner (you build) → Parser (you build) → LLM → Dashboard
+```
+
+**NEW (What you're ACTUALLY building):**
+```
+Contract → ETH-Check (existing) → Parser (you build) → LLM (you build) → Dashboard (you build)
