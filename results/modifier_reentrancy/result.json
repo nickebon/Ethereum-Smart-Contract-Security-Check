@@ -1,0 +1,51 @@
+{
+  "contract": "modifier_reentrancy",
+  "category": "reentrancy",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/modifier_reentrancy.sol",
+  "raw_alert_count": 10,
+  "unique_vuln_count": 3,
+  "reduction_pct": 70.0,
+  "tokens_total": 1962,
+  "estimated_cost_usd": 0.00742,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in airDrop()",
+      "swc_id": "SWC-107",
+      "severity": "medium",
+      "location": "airDrop() function, lines 15-21",
+      "finding_ids": [
+        0,
+        6,
+        8,
+        9
+      ],
+      "reasoning": "Findings reference external calls and state access in airDrop() function, indicating a reentrancy vulnerability.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "External call in supportsToken()",
+      "swc_id": "SWC-107",
+      "severity": "low",
+      "location": "supportsToken() function, line 42",
+      "finding_ids": [
+        5
+      ],
+      "reasoning": "Single finding about an external call to a user-supplied address in supportsToken().",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 3,
+      "name": "External call in call(address)",
+      "swc_id": "SWC-107",
+      "severity": "low",
+      "location": "call(address) function, line 47",
+      "finding_ids": [
+        7
+      ],
+      "reasoning": "Single finding about an external call to a user-supplied address in call(address).",
+      "ethtrust_rule": "P1"
+    }
+  ]
+}

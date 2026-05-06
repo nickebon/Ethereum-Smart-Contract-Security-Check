@@ -1,0 +1,41 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Unprotected Selfdestruct in sudicideAnyone()",
+      "swc_id": "SWC-106",
+      "severity": "high",
+      "location": "sudicideAnyone() function, lines 12-14",
+      "finding_ids": [
+        0,
+        3
+      ],
+      "reasoning": "Both findings describe the same issue of an unprotected self-destruct vulnerability in the sudicideAnyone() function, with spatial proximity and tool agreement.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Outdated Solidity Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Contract-wide, lines 8",
+      "finding_ids": [
+        1,
+        2
+      ],
+      "reasoning": "Both findings highlight issues related to the outdated Solidity version, with logical and descriptive overlap.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 4,
+    "unique_count": 2,
+    "duplicates_removed": 2
+  },
+  "tokens_prompt": 854,
+  "tokens_completion": 247,
+  "tokens_total": 1101,
+  "estimated_cost_usd": 0.00461,
+  "llm_model": "gpt-4o",
+  "input_count": 4
+}

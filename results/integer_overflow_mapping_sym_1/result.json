@@ -1,0 +1,25 @@
+{
+  "contract": "integer_overflow_mapping_sym_1",
+  "category": "arithmetic",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/arithmetic/integer_overflow_mapping_sym_1.sol",
+  "raw_alert_count": 2,
+  "unique_vuln_count": 1,
+  "reduction_pct": 50.0,
+  "tokens_total": 788,
+  "estimated_cost_usd": 0.00302,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Compiler Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, lines 9",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings reference the use of an outdated Solidity compiler version, with overlapping descriptions about known issues and recommendations to upgrade.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

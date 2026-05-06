@@ -1,0 +1,41 @@
+{
+  "contract": "0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9",
+  "category": "unchecked_low_level_calls",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+  "raw_alert_count": 7,
+  "unique_vuln_count": 2,
+  "reduction_pct": 71.43,
+  "tokens_total": 1543,
+  "estimated_cost_usd": 0.00579,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Unchecked Low-Level Call in callAddress()",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "callAddress() function, lines 10-13",
+      "finding_ids": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "reasoning": "All findings reference the low-level call in callAddress() on lines 10-13, including unchecked return value, lack of zero-check, and external call to user-supplied address.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Outdated Solidity Version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version with known issues.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

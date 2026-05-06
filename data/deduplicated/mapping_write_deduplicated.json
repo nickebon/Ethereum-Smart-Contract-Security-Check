@@ -1,0 +1,55 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Controlled array length vulnerability",
+      "swc_id": "SWC-129",
+      "severity": "high",
+      "location": "Map contract, lines 11-30",
+      "finding_ids": [
+        0,
+        6
+      ],
+      "reasoning": "Both findings describe user-controlled input leading to unsafe storage writes in the Map contract.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Unprotected Ether withdrawal in withdraw()",
+      "swc_id": "SWC-105",
+      "severity": "high",
+      "location": "withdraw() function, lines 26-29",
+      "finding_ids": [
+        1,
+        7,
+        8
+      ],
+      "reasoning": "These findings describe vulnerabilities in the withdraw() function, including unprotected Ether withdrawal and transaction order dependence.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings highlight the use of outdated Solidity versions with known issues.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 10,
+    "unique_count": 3,
+    "duplicates_removed": 7
+  },
+  "tokens_prompt": 1527,
+  "tokens_completion": 321,
+  "tokens_total": 1848,
+  "estimated_cost_usd": 0.00703,
+  "llm_model": "gpt-4o",
+  "input_count": 10
+}

@@ -1,0 +1,53 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Unchecked return value in withdrawBalance()",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "withdrawBalance() function, line 14",
+      "finding_ids": [
+        0,
+        4
+      ],
+      "reasoning": "Both findings reference the unchecked return value of an external call in the withdrawBalance() function on line 14.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Transaction Order Dependence in withdrawBalance()",
+      "swc_id": "SWC-114",
+      "severity": "medium",
+      "location": "withdrawBalance() function, line 14",
+      "finding_ids": [
+        3
+      ],
+      "reasoning": "This finding describes a race condition vulnerability related to transaction order dependence in the withdrawBalance() function.",
+      "ethtrust_rule": "P4"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, line 7",
+      "finding_ids": [
+        1,
+        2
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version with known issues.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 5,
+    "unique_count": 3,
+    "duplicates_removed": 2
+  },
+  "tokens_prompt": 988,
+  "tokens_completion": 323,
+  "tokens_total": 1311,
+  "estimated_cost_usd": 0.0057,
+  "llm_model": "gpt-4o",
+  "input_count": 5
+}

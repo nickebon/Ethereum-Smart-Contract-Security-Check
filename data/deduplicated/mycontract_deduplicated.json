@@ -1,0 +1,54 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Arbitrary ETH Transfer in sendTo()",
+      "swc_id": "SWC-105",
+      "severity": "high",
+      "location": "sendTo() function, lines 18-22",
+      "finding_ids": [
+        0,
+        2
+      ],
+      "reasoning": "Both findings reference the ability to send ETH to an arbitrary address without proper validation, including missing zero-checks.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Dependence on tx.origin in sendTo()",
+      "swc_id": "SWC-115",
+      "severity": "medium",
+      "location": "sendTo() function, lines 18-22",
+      "finding_ids": [
+        1,
+        5
+      ],
+      "reasoning": "Both findings highlight the use of tx.origin for authorization, which is insecure and can lead to vulnerabilities.",
+      "ethtrust_rule": "P14"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity Version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Global, lines 8",
+      "finding_ids": [
+        3,
+        4
+      ],
+      "reasoning": "Both findings point to the use of an outdated Solidity version with known issues.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 6,
+    "unique_count": 3,
+    "duplicates_removed": 3
+  },
+  "tokens_prompt": 1113,
+  "tokens_completion": 338,
+  "tokens_total": 1451,
+  "estimated_cost_usd": 0.00616,
+  "llm_model": "gpt-4o",
+  "input_count": 6
+}

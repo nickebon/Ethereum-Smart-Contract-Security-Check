@@ -1,0 +1,38 @@
+{
+  "contract": "simple_suicide",
+  "category": "access_control",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/access_control/simple_suicide.sol",
+  "raw_alert_count": 4,
+  "unique_vuln_count": 2,
+  "reduction_pct": 50.0,
+  "tokens_total": 1101,
+  "estimated_cost_usd": 0.00461,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Unprotected Selfdestruct in sudicideAnyone()",
+      "swc_id": "SWC-106",
+      "severity": "high",
+      "location": "sudicideAnyone() function, lines 12-14",
+      "finding_ids": [
+        0,
+        3
+      ],
+      "reasoning": "Both findings describe the same issue of an unprotected self-destruct vulnerability in the sudicideAnyone() function, with spatial proximity and tool agreement.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Outdated Solidity Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Contract-wide, lines 8",
+      "finding_ids": [
+        1,
+        2
+      ],
+      "reasoning": "Both findings highlight issues related to the outdated Solidity version, with logical and descriptive overlap.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

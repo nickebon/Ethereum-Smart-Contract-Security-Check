@@ -1,0 +1,49 @@
+{
+  "contract": "random_number_generator",
+  "category": "bad_randomness",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/random_number_generator.sol",
+  "raw_alert_count": 4,
+  "unique_vuln_count": 3,
+  "reduction_pct": 25.0,
+  "tokens_total": 1289,
+  "estimated_cost_usd": 0.0058,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Weak PRNG in random()",
+      "swc_id": "SWC-120",
+      "severity": "high",
+      "location": "random() function, lines 14-25",
+      "finding_ids": [
+        0
+      ],
+      "reasoning": "The weak-prng finding highlights the use of an insecure random number generator in the random() function.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Dead code in random()",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "random() function, lines 14-25",
+      "finding_ids": [
+        1
+      ],
+      "reasoning": "The dead-code finding indicates that the random() function is unused and should be removed. This is unrelated to the weak PRNG issue.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Global, line 7",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both solc-version findings highlight the use of an outdated Solidity version (0.4.25) and its associated risks. These are logically the same issue.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

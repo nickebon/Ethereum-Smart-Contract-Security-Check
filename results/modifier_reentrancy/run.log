@@ -1,0 +1,90 @@
+[16:27:37] Pipeline started for contract: modifier_reentrancy
+[16:27:37] Category: reentrancy
+[16:27:37] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/modifier_reentrancy.sol
+[16:27:37] Step 1: Running auto_solc_use.sh...
+[16:27:38] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity ^0.4.24;
+  - exact : 0.4.24
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 1s)
+[DONE] All steps completed in 1s
+
+[16:27:38] Step 2: Running Slither...
+[16:27:38] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:27:38] Slither return code: 255
+[16:27:38] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/modifier_reentrancy.slither.json
+[16:27:38] Slither output file exists: True
+[16:27:38] Slither output file size: 23856 bytes
+[16:27:38] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/modifier_reentrancy.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy' running
+
+Detector: reentrancy-no-eth
+Reentrancy in ModifierEntrancy.airDrop() (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#15-17):
+	External calls:
+	- supportsToken() (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#15)
+		- require(bool)(keccak256()(abi.encodePacked(Nu Token)) == Bank(msg.sender).supportsToken()) (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#21)
+	State variables written after the call(s):
+	- tokenBalance[msg.sender] += 20 (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#16)
+	ModifierEntrancy.tokenBalance (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#10) can be used in cross function reentrancies:
+	- ModifierEntrancy.airDrop() (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#15-17)
+	- ModifierEntrancy.hasNoBalance() (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#25-28)
+	- ModifierEntrancy.tokenBalance (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#10)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Detector: solc-version
+Version constraint ^0.4.24 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ABIEncoderV2PackedStorage_0.4.x
+	- ExpExponentCleanup
+	- EventStructWrongData.
+It is used by:
+	- ^0.4.24 (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#7)
+solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: naming-convention
+Contract attack (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#37-49) is not in CapWords
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: unused-state
+ModifierEntrancy.name (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#11) is never used in ModifierEntrancy (data/capstone_dataset/reentrancy/modifier_reentrancy.sol#9-29)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/modifier_reentrancy.sol analyzed (3 contracts with 101 detectors), 5 result(s) found
+
+[16:27:38] Slither found 5 issues
+[16:27:38] Step 3: Running Mythril via Docker...
+[16:27:38] Detected solc version: 0.4.25
+[16:27:38] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/reentrancy/modifier_reentrancy.sol -o json --execution-timeout 60 --max-depth 80
+[16:27:57] Mythril found 5 issues
+[16:27:57] Step 4: Running parser...
+[16:27:57] Parser: 5 from Slither + 5 from Mythril = 10 total
+[16:27:57] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/modifier_reentrancy_combined.json
+[16:27:57] Step 5: Running LLM deduplication...
+[16:28:02] LLM deduplication: 3 unique vulnerabilities, 1962 tokens, $0.00742
+[16:28:02] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/modifier_reentrancy_deduplicated.json
+[16:28:02] Step 6: Writing final result JSON...
+[16:28:02] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/modifier_reentrancy/result.json
+[16:28:02] Step 7: Updating summary.csv...
+[16:28:02] Appended entry to summary.csv
+[16:28:02] Pipeline complete (24.5s)

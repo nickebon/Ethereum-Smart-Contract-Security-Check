@@ -1,0 +1,897 @@
+{
+  "total_findings": 8,
+  "slither_count": 7,
+  "mythril_count": 1,
+  "findings": [
+    {
+      "tool": "slither",
+      "check": "arbitrary-send-eth",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "high",
+      "contract": "GuessTheRandomNumberChallenge",
+      "function": "guess",
+      "lines": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "description": "GuessTheRandomNumberChallenge.guess(uint8) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#22-28) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.transfer(2000000000000000000) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#26)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "guess",
+            "source_mapping": {
+              "start": 564,
+              "length": 165,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "GuessTheRandomNumberChallenge",
+                "source_mapping": {
+                  "start": 171,
+                  "length": 560,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "guess(uint8)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "msg.sender.transfer(2000000000000000000)",
+            "source_mapping": {
+              "start": 684,
+              "length": 28,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                26
+              ],
+              "starting_column": 13,
+              "ending_column": 41
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "guess",
+                "source_mapping": {
+                  "start": 564,
+                  "length": 165,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "GuessTheRandomNumberChallenge",
+                    "source_mapping": {
+                      "start": 171,
+                      "length": 560,
+                      "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "guess(uint8)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "GuessTheRandomNumberChallenge.guess(uint8) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#22-28) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.transfer(2000000000000000000) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#26)\n",
+        "markdown": "[GuessTheRandomNumberChallenge.guess(uint8)](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L22-L28) sends eth to arbitrary user\n\tDangerous calls:\n\t- [msg.sender.transfer(2000000000000000000)](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L26)\n",
+        "first_markdown_element": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L22-L28",
+        "id": "2dd4c6d4e19c86c12c67e81b662a2eabc37445b48b9b9161bbc5f7b527d496e2",
+        "check": "arbitrary-send-eth",
+        "impact": "High",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "incorrect-equality",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "medium",
+      "contract": "GuessTheRandomNumberChallenge",
+      "function": "guess",
+      "lines": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "description": "GuessTheRandomNumberChallenge.guess(uint8) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#22-28) uses a dangerous strict equality:\n\t- n == answer (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#25)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "guess",
+            "source_mapping": {
+              "start": 564,
+              "length": 165,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "GuessTheRandomNumberChallenge",
+                "source_mapping": {
+                  "start": 171,
+                  "length": 560,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "guess(uint8)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "n == answer",
+            "source_mapping": {
+              "start": 657,
+              "length": 11,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                25
+              ],
+              "starting_column": 13,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "guess",
+                "source_mapping": {
+                  "start": 564,
+                  "length": 165,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "GuessTheRandomNumberChallenge",
+                    "source_mapping": {
+                      "start": 171,
+                      "length": 560,
+                      "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "guess(uint8)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "GuessTheRandomNumberChallenge.guess(uint8) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#22-28) uses a dangerous strict equality:\n\t- n == answer (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#25)\n",
+        "markdown": "[GuessTheRandomNumberChallenge.guess(uint8)](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L22-L28) uses a dangerous strict equality:\n\t- [n == answer](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L25)\n",
+        "first_markdown_element": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L22-L28",
+        "id": "932b1f96a07bc5f071da34fbc19c69545fafe0bc7394ffcee7940530cc52d571",
+        "check": "incorrect-equality",
+        "impact": "Medium",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "incorrect-equality",
+      "swc_id": null,
+      "ethtrust_rule": "P0",
+      "severity": "medium",
+      "contract": "GuessTheRandomNumberChallenge",
+      "function": "isComplete",
+      "lines": [
+        18,
+        19,
+        20
+      ],
+      "description": "GuessTheRandomNumberChallenge.isComplete() (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#18-20) uses a dangerous strict equality:\n\t- address(this).balance == 0 (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#19)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "isComplete",
+            "source_mapping": {
+              "start": 459,
+              "length": 99,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                18,
+                19,
+                20
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "GuessTheRandomNumberChallenge",
+                "source_mapping": {
+                  "start": 171,
+                  "length": 560,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "isComplete()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "address(this).balance == 0",
+            "source_mapping": {
+              "start": 518,
+              "length": 33,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                19
+              ],
+              "starting_column": 9,
+              "ending_column": 42
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "isComplete",
+                "source_mapping": {
+                  "start": 459,
+                  "length": 99,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    18,
+                    19,
+                    20
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "GuessTheRandomNumberChallenge",
+                    "source_mapping": {
+                      "start": 171,
+                      "length": 560,
+                      "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "isComplete()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "GuessTheRandomNumberChallenge.isComplete() (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#18-20) uses a dangerous strict equality:\n\t- address(this).balance == 0 (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#19)\n",
+        "markdown": "[GuessTheRandomNumberChallenge.isComplete()](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L18-L20) uses a dangerous strict equality:\n\t- [address(this).balance == 0](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L19)\n",
+        "first_markdown_element": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L18-L20",
+        "id": "b7fdd6c63e2a9427e5b825ccd0372fb47909ab339ff9481ae675ab3fe6fabc5d",
+        "check": "incorrect-equality",
+        "impact": "Medium",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "timestamp",
+      "swc_id": null,
+      "ethtrust_rule": "P3",
+      "severity": "low",
+      "contract": "GuessTheRandomNumberChallenge",
+      "function": "guess",
+      "lines": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "description": "GuessTheRandomNumberChallenge.guess(uint8) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#22-28) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- n == answer (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#25)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "guess",
+            "source_mapping": {
+              "start": 564,
+              "length": 165,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "GuessTheRandomNumberChallenge",
+                "source_mapping": {
+                  "start": 171,
+                  "length": 560,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "guess(uint8)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "n == answer",
+            "source_mapping": {
+              "start": 657,
+              "length": 11,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                25
+              ],
+              "starting_column": 13,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "guess",
+                "source_mapping": {
+                  "start": 564,
+                  "length": 165,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "GuessTheRandomNumberChallenge",
+                    "source_mapping": {
+                      "start": 171,
+                      "length": 560,
+                      "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "guess(uint8)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "GuessTheRandomNumberChallenge.guess(uint8) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#22-28) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- n == answer (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#25)\n",
+        "markdown": "[GuessTheRandomNumberChallenge.guess(uint8)](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L22-L28) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- [n == answer](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L25)\n",
+        "first_markdown_element": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L22-L28",
+        "id": "5d2faee057d123a9dfd3ef918553901797aa4ef10ee698d8c5fa345151829cda",
+        "check": "timestamp",
+        "impact": "Low",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "deprecated-standards",
+      "swc_id": null,
+      "ethtrust_rule": "P11",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        15
+      ],
+      "description": "Deprecated standard detected answer = uint8(keccak256()(block.blockhash(block.number - 1),now)) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#15):\n\t- Usage of \"block.blockhash()\" should be replaced with \"blockhash()\"",
+      "raw": {
+        "elements": [
+          {
+            "type": "node",
+            "name": "answer = uint8(keccak256()(block.blockhash(block.number - 1),now))",
+            "source_mapping": {
+              "start": 381,
+              "length": 65,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                15
+              ],
+              "starting_column": 9,
+              "ending_column": 74
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "GuessTheRandomNumberChallenge",
+                "source_mapping": {
+                  "start": 235,
+                  "length": 218,
+                  "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    12,
+                    13,
+                    14,
+                    15,
+                    16
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "GuessTheRandomNumberChallenge",
+                    "source_mapping": {
+                      "start": 171,
+                      "length": 560,
+                      "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "GuessTheRandomNumberChallenge()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Deprecated standard detected answer = uint8(keccak256()(block.blockhash(block.number - 1),now)) (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#15):\n\t- Usage of \"block.blockhash()\" should be replaced with \"blockhash()\"\n",
+        "markdown": "Deprecated standard detected [answer = uint8(keccak256()(block.blockhash(block.number - 1),now))](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L15):\n\t- Usage of \"block.blockhash()\" should be replaced with \"blockhash()\"\n",
+        "first_markdown_element": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L15",
+        "id": "9c731b2a7319c15651736084ceaf1d531a50c6c162871d3818478704f8a52c1b",
+        "check": "deprecated-standards",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        7
+      ],
+      "description": "Version constraint ^0.4.21 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData\n\t- NestedArrayFunctionCallDecoder.\nIt is used by:\n\t- ^0.4.21 (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#7)",
+      "raw": {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.21",
+            "source_mapping": {
+              "start": 145,
+              "length": 24,
+              "filename_relative": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "filename_short": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".21"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.21 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData\n\t- NestedArrayFunctionCallDecoder.\nIt is used by:\n\t- ^0.4.21 (data/capstone_dataset/bad_randomness/guess_the_random_number.sol#7)\n",
+        "markdown": "Version constraint ^0.4.21 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData\n\t- NestedArrayFunctionCallDecoder.\nIt is used by:\n\t- [^0.4.21](data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L7)\n",
+        "first_markdown_element": "data/capstone_dataset/bad_randomness/guess_the_random_number.sol#L7",
+        "id": "542405aa1e43470b25d547a3c1af055575791d71cc27ec75095babb4f54826dc",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [],
+      "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.",
+      "raw": {
+        "elements": [],
+        "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "ac1462fa4f49aef585a564df70976321999b9c7b6cf45f2bd4ae2df81eafff02",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Unprotected Ether Withdrawal",
+      "swc_id": "105",
+      "ethtrust_rule": "P2",
+      "severity": "high",
+      "contract": "GuessTheRandomNumberChallenge",
+      "function": "guess(uint8)",
+      "lines": [
+        26
+      ],
+      "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+      "raw": {
+        "address": 269,
+        "code": "msg.sender.transfer(2 ether)",
+        "contract": "GuessTheRandomNumberChallenge",
+        "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+        "filename": "/sb/data/capstone_dataset/bad_randomness/guess_the_random_number.sol",
+        "function": "guess(uint8)",
+        "lineno": 26,
+        "max_gas_used": 36492,
+        "min_gas_used": 1881,
+        "severity": "High",
+        "sourceMap": "684:28",
+        "swc-id": "105",
+        "title": "Unprotected Ether Withdrawal"
+      }
+    }
+  ]
+}

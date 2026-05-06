@@ -1,0 +1,77 @@
+{
+  "contract": "phishable",
+  "category": "access_control",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/access_control/phishable.sol",
+  "raw_alert_count": 10,
+  "unique_vuln_count": 5,
+  "reduction_pct": 50.0,
+  "tokens_total": 2058,
+  "estimated_cost_usd": 0.00926,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in withdrawAll()",
+      "swc_id": "SWC-107",
+      "severity": "high",
+      "location": "withdrawAll() function, lines 18-22",
+      "finding_ids": [
+        0,
+        8,
+        9
+      ],
+      "reasoning": "Findings reference the external call on line 19 and potential state changes or race conditions on lines 20-21, indicating a reentrancy vulnerability.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Dependence on tx.origin in withdrawAll()",
+      "swc_id": "SWC-115",
+      "severity": "medium",
+      "location": "withdrawAll() function, lines 18-22",
+      "finding_ids": [
+        1,
+        7
+      ],
+      "reasoning": "Both findings highlight the use of tx.origin for authorization, which is a known anti-pattern and security risk.",
+      "ethtrust_rule": "P14"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Missing zero-checks in constructor and withdrawAll()",
+      "swc_id": "SWC-110",
+      "severity": "low",
+      "location": "constructor and withdrawAll() function, lines 12-13, 18-21",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings describe missing zero-checks for critical variables (_owner in the constructor and _recipient in withdrawAll()).",
+      "ethtrust_rule": "P6"
+    },
+    {
+      "vuln_id": 4,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        4,
+        5
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version with known vulnerabilities.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 5,
+      "name": "Non-standard naming convention in withdrawAll()",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "withdrawAll() function, line 18",
+      "finding_ids": [
+        6
+      ],
+      "reasoning": "This finding is unrelated to other issues and describes a naming convention violation for the _recipient parameter.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

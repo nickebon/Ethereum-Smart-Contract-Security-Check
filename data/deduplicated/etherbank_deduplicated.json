@@ -1,0 +1,54 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in withdraw()",
+      "swc_id": "SWC-107",
+      "severity": "high",
+      "location": "withdrawBalance() function, lines 18-23",
+      "finding_ids": [
+        0,
+        4,
+        7
+      ],
+      "reasoning": "These findings describe the external call on line 19 followed by state access on line 22, which is a classic reentrancy pattern. Both tools agree on the vulnerability type.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Deprecated THROW usage",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Line 21",
+      "finding_ids": [
+        1
+      ],
+      "reasoning": "This finding is unrelated to reentrancy and highlights the use of a deprecated Solidity feature.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings highlight issues with the outdated Solidity version used in the contract.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 8,
+    "unique_count": 3,
+    "duplicates_removed": 5
+  },
+  "tokens_prompt": 1337,
+  "tokens_completion": 323,
+  "tokens_total": 1660,
+  "estimated_cost_usd": 0.00657,
+  "llm_model": "gpt-4o",
+  "input_count": 8
+}

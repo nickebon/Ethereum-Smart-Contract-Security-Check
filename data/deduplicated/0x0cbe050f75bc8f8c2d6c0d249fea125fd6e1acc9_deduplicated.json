@@ -1,0 +1,44 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Unchecked Low-Level Call in callAddress()",
+      "swc_id": "SWC-104",
+      "severity": "medium",
+      "location": "callAddress() function, lines 10-13",
+      "finding_ids": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "reasoning": "All findings reference the low-level call in callAddress() on lines 10-13, including unchecked return value, lack of zero-check, and external call to user-supplied address.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Outdated Solidity Version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version with known issues.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 7,
+    "unique_count": 2,
+    "duplicates_removed": 5
+  },
+  "tokens_prompt": 1285,
+  "tokens_completion": 258,
+  "tokens_total": 1543,
+  "estimated_cost_usd": 0.00579,
+  "llm_model": "gpt-4o",
+  "input_count": 7
+}

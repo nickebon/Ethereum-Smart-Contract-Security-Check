@@ -1,0 +1,102 @@
+[16:26:30] Pipeline started for contract: send_loop
+[16:26:30] Category: denial_of_service
+[16:26:30] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol
+[16:26:30] Step 1: Running auto_solc_use.sh...
+[16:26:31] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 1s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity 0.4.24;
+  - exact : 0.4.24
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 0s)
+[DONE] All steps completed in 0s
+
+[16:26:31] Step 2: Running Slither...
+[16:26:31] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:26:31] Slither return code: 1
+[16:26:31] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/send_loop.slither.json
+[16:26:31] Slither output file exists: False
+[16:26:31] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service' running
+Compilation warnings/errors on /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol:
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol:8:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.24;
+^---------------------^
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol:17:30: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x79B483371E87d664cd39491b5f06250165e4b185'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+        refundAddresses.push(0x79B483371E87d664cd39491b5F06250165e4b185);
+                             ^----------------------------------------^
+
+Traceback (most recent call last):
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/platform/solc.py", line 581, in _run_solc
+    ret: Dict = json.loads(stdout)
+                ^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 760, in main
+    main_impl(all_detector_classes=detectors, all_printer_classes=printers)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 865, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 95, in process_all
+    compilations = compile_all(target, **vars(args))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/crytic_compile.py", line 722, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/crytic_compile.py", line 211, in __init__
+    self._compile(**kwargs)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/crytic_compile.py", line 633, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/platform/solc.py", line 150, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/platform/solc.py", line 279, in _get_targets_json
+    return _run_solc(
+           ^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/crytic_compile/platform/solc.py", line 585, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol:8:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.24;
+^---------------------^
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/denial_of_service/send_loop.sol:17:30: Warning: This looks like an address but has an invalid checksum. If this is not used as an address, please prepend '00'. Correct checksummed address: '0x79B483371E87d664cd39491b5f06250165e4b185'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+        refundAddresses.push(0x79B483371E87d664cd39491b5F06250165e4b185);
+                             ^----------------------------------------^
+
+
+[16:26:31] Slither found 0 issues
+[16:26:31] Step 3: Running Mythril via Docker...
+[16:26:31] Detected solc version: 0.4.25
+[16:26:31] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/denial_of_service/send_loop.sol -o json --execution-timeout 60 --max-depth 80
+[16:26:34] Mythril found 0 issues
+[16:26:34] Step 4: Running parser...
+[16:26:34] Parser: 0 from Slither + 0 from Mythril = 0 total
+[16:26:34] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/send_loop_combined.json
+[16:26:34] Step 5: Running LLM deduplication...
+[16:26:34] No findings to deduplicate
+[16:26:34] LLM deduplication: 0 unique vulnerabilities, 0 tokens, $0.00000
+[16:26:34] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/send_loop_deduplicated.json
+[16:26:34] Step 6: Writing final result JSON...
+[16:26:34] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/send_loop/result.json
+[16:26:34] Step 7: Updating summary.csv...
+[16:26:34] Appended entry to summary.csv
+[16:26:34] Pipeline complete (3.5s)

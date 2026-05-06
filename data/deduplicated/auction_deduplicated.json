@@ -1,0 +1,41 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in bid()",
+      "swc_id": "SWC-107",
+      "severity": "medium",
+      "location": "bid() function, lines 15-28",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings reference the bid() function and describe reentrancy-related issues: external call followed by state changes.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Outdated Solidity version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version, which is a general informational issue.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 4,
+    "unique_count": 2,
+    "duplicates_removed": 2
+  },
+  "tokens_prompt": 925,
+  "tokens_completion": 230,
+  "tokens_total": 1155,
+  "estimated_cost_usd": 0.00461,
+  "llm_model": "gpt-4o",
+  "input_count": 4
+}

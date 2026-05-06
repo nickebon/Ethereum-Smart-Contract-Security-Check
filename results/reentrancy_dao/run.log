@@ -1,0 +1,86 @@
+[16:28:21] Pipeline started for contract: reentrancy_dao
+[16:28:21] Category: reentrancy
+[16:28:21] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_dao.sol
+[16:28:21] Step 1: Running auto_solc_use.sh...
+[16:28:21] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity ^0.4.19;
+  - exact : 0.4.19
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 0s)
+[DONE] All steps completed in 0s
+
+[16:28:21] Step 2: Running Slither...
+[16:28:22] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:28:22] Slither return code: 255
+[16:28:22] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/reentrancy_dao.slither.json
+[16:28:22] Slither output file exists: True
+[16:28:22] Slither output file size: 20934 bytes
+[16:28:22] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_dao.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy' running
+
+Detector: reentrancy-eth
+Reentrancy in ReentrancyDAO.withdrawAll() (data/capstone_dataset/reentrancy/reentrancy_dao.sol#13-22):
+	External calls:
+	- callResult = msg.sender.call.value(oCredit)() (data/capstone_dataset/reentrancy/reentrancy_dao.sol#18)
+	State variables written after the call(s):
+	- credit[msg.sender] = 0 (data/capstone_dataset/reentrancy/reentrancy_dao.sol#20)
+	ReentrancyDAO.credit (data/capstone_dataset/reentrancy/reentrancy_dao.sol#10) can be used in cross function reentrancies:
+	- ReentrancyDAO.deposit() (data/capstone_dataset/reentrancy/reentrancy_dao.sol#24-27)
+	- ReentrancyDAO.withdrawAll() (data/capstone_dataset/reentrancy/reentrancy_dao.sol#13-22)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Detector: solc-version
+Version constraint ^0.4.19 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ABIEncoderV2PackedStorage_0.4.x
+	- ExpExponentCleanup
+	- EventStructWrongData
+	- NestedArrayFunctionCallDecoder.
+It is used by:
+	- ^0.4.19 (data/capstone_dataset/reentrancy/reentrancy_dao.sol#7)
+solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: low-level-calls
+Low level call in ReentrancyDAO.withdrawAll() (data/capstone_dataset/reentrancy/reentrancy_dao.sol#13-22):
+	- callResult = msg.sender.call.value(oCredit)() (data/capstone_dataset/reentrancy/reentrancy_dao.sol#18)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_dao.sol analyzed (1 contracts with 101 detectors), 4 result(s) found
+
+[16:28:22] Slither found 4 issues
+[16:28:22] Step 3: Running Mythril via Docker...
+[16:28:22] Detected solc version: 0.4.25
+[16:28:22] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/reentrancy/reentrancy_dao.sol -o json --execution-timeout 60 --max-depth 80
+[16:28:35] Mythril found 3 issues
+[16:28:35] Step 4: Running parser...
+[16:28:35] Parser: 4 from Slither + 3 from Mythril = 7 total
+[16:28:35] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/reentrancy_dao_combined.json
+[16:28:35] Step 5: Running LLM deduplication...
+[16:28:39] LLM deduplication: 3 unique vulnerabilities, 1629 tokens, $0.00673
+[16:28:39] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/reentrancy_dao_deduplicated.json
+[16:28:39] Step 6: Writing final result JSON...
+[16:28:39] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/reentrancy_dao/result.json
+[16:28:39] Step 7: Updating summary.csv...
+[16:28:39] Appended entry to summary.csv
+[16:28:39] Pipeline complete (18.2s)

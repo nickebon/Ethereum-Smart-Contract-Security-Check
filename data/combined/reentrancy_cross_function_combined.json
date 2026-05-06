@@ -1,0 +1,91 @@
+{
+  "total_findings": 3,
+  "slither_count": 0,
+  "mythril_count": 3,
+  "findings": [
+    {
+      "tool": "mythril",
+      "check": "External Call To User-Supplied Address",
+      "swc_id": "107",
+      "ethtrust_rule": "P1",
+      "severity": "low",
+      "contract": "Reentrancy_cross_function",
+      "function": "withdrawBalance()",
+      "lines": [
+        24
+      ],
+      "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+      "raw": {
+        "address": 295,
+        "code": "msg.sender.call.value(amountToWithdraw)(\"\")",
+        "contract": "Reentrancy_cross_function",
+        "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+        "filename": "/sb/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol",
+        "function": "withdrawBalance()",
+        "lineno": 24,
+        "max_gas_used": 61604,
+        "min_gas_used": 6943,
+        "severity": "Low",
+        "sourceMap": "642:43",
+        "swc-id": "107",
+        "title": "External Call To User-Supplied Address"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Transaction Order Dependence",
+      "swc_id": "114",
+      "ethtrust_rule": "P3",
+      "severity": "medium",
+      "contract": "Reentrancy_cross_function",
+      "function": "withdrawBalance()",
+      "lines": [
+        24
+      ],
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "raw": {
+        "address": 295,
+        "code": "msg.sender.call.value(amountToWithdraw)(\"\")",
+        "contract": "Reentrancy_cross_function",
+        "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+        "filename": "/sb/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol",
+        "function": "withdrawBalance()",
+        "lineno": 24,
+        "max_gas_used": 61604,
+        "min_gas_used": 6943,
+        "severity": "Medium",
+        "sourceMap": "642:43",
+        "swc-id": "114",
+        "title": "Transaction Order Dependence"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "State access after external call",
+      "swc_id": "107",
+      "ethtrust_rule": "P1",
+      "severity": "medium",
+      "contract": "Reentrancy_cross_function",
+      "function": "withdrawBalance()",
+      "lines": [
+        26
+      ],
+      "description": "Write to persistent state following external call\nThe contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+      "raw": {
+        "address": 380,
+        "code": "userBalances[msg.sender] = 0",
+        "contract": "Reentrancy_cross_function",
+        "description": "Write to persistent state following external call\nThe contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+        "filename": "/sb/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol",
+        "function": "withdrawBalance()",
+        "lineno": 26,
+        "max_gas_used": 61604,
+        "min_gas_used": 6943,
+        "severity": "Medium",
+        "sourceMap": ":28",
+        "swc-id": "107",
+        "title": "State access after external call"
+      }
+    }
+  ]
+}

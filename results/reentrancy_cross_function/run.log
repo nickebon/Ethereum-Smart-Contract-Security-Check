@@ -1,0 +1,103 @@
+[16:28:02] Pipeline started for contract: reentrancy_cross_function
+[16:28:02] Category: reentrancy
+[16:28:02] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol
+[16:28:02] Step 1: Running auto_solc_use.sh...
+[16:28:03] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity ^0.4.24;
+  - exact : 0.4.24
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 1s)
+[DONE] All steps completed in 1s
+
+[16:28:03] Step 2: Running Slither...
+[16:28:03] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:28:03] Slither return code: 1
+[16:28:03] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/reentrancy_cross_function.slither.json
+[16:28:03] Slither output file exists: False
+[16:28:03] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy' running
+Compilation warnings/errors on /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol:
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol:24:9: Warning: Different number of components on the left hand side (2) than on the right hand side (1).
+        (bool success, ) = msg.sender.call.value(amountToWithdraw)(""); // At this point, the caller's code is executed, and can call transfer()
+        ^------------------------------------------------------------^
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol:14:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer(address to, uint amount) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Failed to generate IR for Reentrancy_cross_function.withdrawBalance. Please open an issue https://github.com/crytic/slither/issues.
+Reentrancy_cross_function.withdrawBalance (data/capstone_dataset/reentrancy/reentrancy_cross_function.sol#21-27):
+ 	amountToWithdraw = userBalances[msg.sender]
+	(success,None) = msg.sender.call.value(amountToWithdraw)()
+	require(bool)(success)
+	userBalances[msg.sender] = 0
+Traceback (most recent call last):
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 760, in main
+    main_impl(all_detector_classes=detectors, all_printer_classes=printers)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 865, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 106, in process_all
+    ) = process_single(compilation, args, detector_classes, printer_classes)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/__main__.py", line 79, in process_single
+    slither = Slither(target, ast_format=ast, **vars(args))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/slither.py", line 197, in __init__
+    self._init_parsing_and_analyses(kwargs.get("skip_analyze", False))
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/slither.py", line 216, in _init_parsing_and_analyses
+    raise e
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/slither.py", line 212, in _init_parsing_and_analyses
+    parser.analyze_contracts()
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/solc_parsing/slither_compilation_unit_solc.py", line 587, in analyze_contracts
+    self._convert_to_slithir()
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/solc_parsing/slither_compilation_unit_solc.py", line 820, in _convert_to_slithir
+    raise e
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/solc_parsing/slither_compilation_unit_solc.py", line 805, in _convert_to_slithir
+    func.generate_slithir_and_analyze()
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/core/declarations/function.py", line 1875, in generate_slithir_and_analyze
+    node.slithir_generation()
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/core/cfg/node.py", line 704, in slithir_generation
+    self._irs = convert_expression(expression, self)  # type:ignore
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/slithir/convert.py", line 114, in convert_expression
+    visitor = ExpressionToSlithIR(expression, node)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/visitors/slithir/expression_to_slithir.py", line 172, in __init__
+    self._visit_expression(self.expression)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/visitors/expression/expression.py", line 77, in _visit_expression
+    self._post_visit(expression)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/visitors/expression/expression.py", line 251, in _post_visit
+    self._post_assignement_operation(expression)
+  File "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/lib/python3.11/site-packages/slither/visitors/slithir/expression_to_slithir.py", line 206, in _post_assignement_operation
+    assert isinstance(right, TupleVariable)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[16:28:03] Slither found 0 issues
+[16:28:03] Step 3: Running Mythril via Docker...
+[16:28:03] Detected solc version: 0.4.25
+[16:28:03] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/reentrancy/reentrancy_cross_function.sol -o json --execution-timeout 60 --max-depth 80
+[16:28:15] Mythril found 3 issues
+[16:28:15] Step 4: Running parser...
+[16:28:15] Parser: 0 from Slither + 3 from Mythril = 3 total
+[16:28:15] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/reentrancy_cross_function_combined.json
+[16:28:15] Step 5: Running LLM deduplication...
+[16:28:20] LLM deduplication: 2 unique vulnerabilities, 1040 tokens, $0.00471
+[16:28:20] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/reentrancy_cross_function_deduplicated.json
+[16:28:20] Step 6: Writing final result JSON...
+[16:28:20] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/reentrancy_cross_function/result.json
+[16:28:20] Step 7: Updating summary.csv...
+[16:28:20] Appended entry to summary.csv
+[16:28:20] Pipeline complete (18.4s)

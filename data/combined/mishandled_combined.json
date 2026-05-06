@@ -1,0 +1,283 @@
+{
+  "total_findings": 5,
+  "slither_count": 3,
+  "mythril_count": 2,
+  "findings": [
+    {
+      "tool": "slither",
+      "check": "unchecked-send",
+      "swc_id": null,
+      "ethtrust_rule": "P8",
+      "severity": "medium",
+      "contract": "SendBack",
+      "function": "withdrawBalance",
+      "lines": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "description": "SendBack.withdrawBalance() (data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#10-15) ignores return value by msg.sender.send(amountToWithdraw) (data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#14)",
+      "raw": {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdrawBalance",
+            "source_mapping": {
+              "start": 245,
+              "length": 199,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "is_dependency": false,
+              "lines": [
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+              ],
+              "starting_column": 5,
+              "ending_column": 3
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SendBack",
+                "source_mapping": {
+                  "start": 177,
+                  "length": 269,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "withdrawBalance()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "msg.sender.send(amountToWithdraw)",
+            "source_mapping": {
+              "start": 407,
+              "length": 33,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "is_dependency": false,
+              "lines": [
+                14
+              ],
+              "starting_column": 3,
+              "ending_column": 36
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawBalance",
+                "source_mapping": {
+                  "start": 245,
+                  "length": 199,
+                  "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                  "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                  "filename_short": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 3
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SendBack",
+                    "source_mapping": {
+                      "start": 177,
+                      "length": 269,
+                      "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                      "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                      "filename_short": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "withdrawBalance()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SendBack.withdrawBalance() (data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#10-15) ignores return value by msg.sender.send(amountToWithdraw) (data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#14)\n",
+        "markdown": "[SendBack.withdrawBalance()](data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#L10-L15) ignores return value by [msg.sender.send(amountToWithdraw)](data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#L14)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#L10-L15",
+        "id": "64c4f29b83defe89dd3b00cdaf24cc9a586b3acc05d485dba2a1910efc79b514",
+        "check": "unchecked-send",
+        "impact": "Medium",
+        "confidence": "Medium"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [
+        7
+      ],
+      "description": "Version constraint ^0.4.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction\n\t- IdentityPrecompileReturnIgnored\n\t- HighOrderByteCleanStorage\n\t- OptimizerStaleKnowledgeAboutSHA3\n\t- LibrariesNotCallableFromPayableFunctions.\nIt is used by:\n\t- ^0.4.0 (data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#7)",
+      "raw": {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.0",
+            "source_mapping": {
+              "start": 153,
+              "length": 23,
+              "filename_relative": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "filename_absolute": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "filename_short": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction\n\t- IdentityPrecompileReturnIgnored\n\t- HighOrderByteCleanStorage\n\t- OptimizerStaleKnowledgeAboutSHA3\n\t- LibrariesNotCallableFromPayableFunctions.\nIt is used by:\n\t- ^0.4.0 (data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#7)\n",
+        "markdown": "Version constraint ^0.4.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction\n\t- IdentityPrecompileReturnIgnored\n\t- HighOrderByteCleanStorage\n\t- OptimizerStaleKnowledgeAboutSHA3\n\t- LibrariesNotCallableFromPayableFunctions.\nIt is used by:\n\t- [^0.4.0](data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#L7)\n",
+        "first_markdown_element": "data/capstone_dataset/unchecked_low_level_calls/mishandled.sol#L7",
+        "id": "435b7130d27499f8b0511add1d58296645a1548e02e20d9243d5dd49f6965395",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "slither",
+      "check": "solc-version",
+      "swc_id": null,
+      "ethtrust_rule": "P15",
+      "severity": "informational",
+      "contract": null,
+      "function": null,
+      "lines": [],
+      "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.",
+      "raw": {
+        "elements": [],
+        "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "ac1462fa4f49aef585a564df70976321999b9c7b6cf45f2bd4ae2df81eafff02",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Transaction Order Dependence",
+      "swc_id": "114",
+      "ethtrust_rule": "P3",
+      "severity": "medium",
+      "contract": "SendBack",
+      "function": "withdrawBalance()",
+      "lines": [
+        14
+      ],
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "raw": {
+        "address": 276,
+        "code": "msg.sender.send(amountToWithdraw)",
+        "contract": "SendBack",
+        "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+        "filename": "/sb/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+        "function": "withdrawBalance()",
+        "lineno": 14,
+        "max_gas_used": 61582,
+        "min_gas_used": 6921,
+        "severity": "Medium",
+        "sourceMap": "407:33",
+        "swc-id": "114",
+        "title": "Transaction Order Dependence"
+      }
+    },
+    {
+      "tool": "mythril",
+      "check": "Unchecked return value from external call.",
+      "swc_id": "104",
+      "ethtrust_rule": "P9",
+      "severity": "medium",
+      "contract": "SendBack",
+      "function": "withdrawBalance()",
+      "lines": [
+        14
+      ],
+      "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+      "raw": {
+        "address": 276,
+        "code": "msg.sender.send(amountToWithdraw)",
+        "contract": "SendBack",
+        "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+        "filename": "/sb/data/capstone_dataset/unchecked_low_level_calls/mishandled.sol",
+        "function": "withdrawBalance()",
+        "lineno": 14,
+        "max_gas_used": 61582,
+        "min_gas_used": 6921,
+        "severity": "Medium",
+        "sourceMap": "407:33",
+        "swc-id": "104",
+        "title": "Unchecked return value from external call."
+      }
+    }
+  ]
+}

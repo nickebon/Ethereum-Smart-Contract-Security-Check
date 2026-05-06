@@ -1,0 +1,50 @@
+{
+  "contract": "FindThisHash",
+  "category": "front_running",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/front_running/FindThisHash.sol",
+  "raw_alert_count": 5,
+  "unique_vuln_count": 3,
+  "reduction_pct": 40.0,
+  "tokens_total": 1359,
+  "estimated_cost_usd": 0.00602,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Arbitrary ETH Transfer in solve()",
+      "swc_id": "SWC-105",
+      "severity": "high",
+      "location": "solve() function, lines 14-19",
+      "finding_ids": [
+        0,
+        4
+      ],
+      "reasoning": "Both findings reference the solve() function and the ETH transfer on lines 14-19. The 'arbitrary-send-eth' and 'external-function' checks are logically related to the same vulnerability.",
+      "ethtrust_rule": "P2"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Deprecated sha3() usage",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "solve() function, line 17",
+      "finding_ids": [
+        1
+      ],
+      "reasoning": "This finding is specific to the use of a deprecated standard (sha3()) and does not overlap with other findings.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity Version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Global",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings reference issues with the Solidity version used in the contract. They are logically related and describe the same underlying vulnerability.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "unique_vulnerabilities": [
+    {
+      "vuln_id": 1,
+      "name": "Outdated Solidity Compiler Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, lines 9",
+      "finding_ids": [
+        0,
+        1
+      ],
+      "reasoning": "Both findings reference the use of an outdated Solidity compiler version, with overlapping descriptions about known issues and recommendations to upgrade.",
+      "ethtrust_rule": "P0"
+    }
+  ],
+  "summary": {
+    "total_input": 2,
+    "unique_count": 1,
+    "duplicates_removed": 1
+  },
+  "tokens_prompt": 648,
+  "tokens_completion": 140,
+  "tokens_total": 788,
+  "estimated_cost_usd": 0.00302,
+  "llm_model": "gpt-4o",
+  "input_count": 2
+}

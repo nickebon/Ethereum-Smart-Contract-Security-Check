@@ -1,0 +1,94 @@
+[16:29:31] Pipeline started for contract: roulette
+[16:29:31] Category: time_manipulation
+[16:29:31] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation/roulette.sol
+[16:29:31] Step 1: Running auto_solc_use.sh...
+[16:29:31] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity ^0.4.25;
+  - exact : 0.4.25
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 0s)
+[DONE] All steps completed in 0s
+
+[16:29:31] Step 2: Running Slither...
+[16:29:32] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:29:32] Slither return code: 255
+[16:29:32] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/roulette.slither.json
+[16:29:32] Slither output file exists: True
+[16:29:32] Slither output file size: 31761 bytes
+[16:29:32] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation/roulette.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation' running
+Compilation warnings/errors on /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation/roulette.sol:
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation/roulette.sol:22:33: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+            msg.sender.transfer(this.balance);
+                                ^----------^
+
+
+Detector: arbitrary-send-eth
+Roulette.fallback() (data/capstone_dataset/time_manipulation/roulette.sol#15-24) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(this.balance) (data/capstone_dataset/time_manipulation/roulette.sol#22)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Detector: weak-prng
+Roulette.fallback() (data/capstone_dataset/time_manipulation/roulette.sol#15-24) uses a weak PRNG: "now % 15 == 0 (data/capstone_dataset/time_manipulation/roulette.sol#21)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+
+Detector: incorrect-equality
+Roulette.fallback() (data/capstone_dataset/time_manipulation/roulette.sol#15-24) uses a dangerous strict equality:
+	- now % 15 == 0 (data/capstone_dataset/time_manipulation/roulette.sol#21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Detector: timestamp
+Roulette.fallback() (data/capstone_dataset/time_manipulation/roulette.sol#15-24) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now != pastBlockTime) (data/capstone_dataset/time_manipulation/roulette.sol#18)
+	- now % 15 == 0 (data/capstone_dataset/time_manipulation/roulette.sol#21)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: solc-version
+Version constraint ^0.4.25 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ABIEncoderV2PackedStorage_0.4.x.
+It is used by:
+	- ^0.4.25 (data/capstone_dataset/time_manipulation/roulette.sol#7)
+solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/time_manipulation/roulette.sol analyzed (1 contracts with 101 detectors), 6 result(s) found
+
+[16:29:32] Slither found 6 issues
+[16:29:32] Step 3: Running Mythril via Docker...
+[16:29:32] Detected solc version: 0.4.25
+[16:29:32] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/time_manipulation/roulette.sol -o json --execution-timeout 60 --max-depth 80
+[16:30:35] Mythril found 4 issues
+[16:30:35] Step 4: Running parser...
+[16:30:35] Parser: 6 from Slither + 4 from Mythril = 10 total
+[16:30:35] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/roulette_combined.json
+[16:30:35] Step 5: Running LLM deduplication...
+[16:30:40] LLM deduplication: 5 unique vulnerabilities, 2143 tokens, $0.00913
+[16:30:40] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/roulette_deduplicated.json
+[16:30:40] Step 6: Writing final result JSON...
+[16:30:40] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/roulette/result.json
+[16:30:40] Step 7: Updating summary.csv...
+[16:30:40] Appended entry to summary.csv
+[16:30:40] Pipeline complete (69.5s)

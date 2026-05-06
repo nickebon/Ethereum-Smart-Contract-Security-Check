@@ -1,0 +1,52 @@
+{
+  "contract": "reentrancy_dao",
+  "category": "reentrancy",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/reentrancy_dao.sol",
+  "raw_alert_count": 7,
+  "unique_vuln_count": 3,
+  "reduction_pct": 57.14,
+  "tokens_total": 1629,
+  "estimated_cost_usd": 0.00673,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in withdrawAll()",
+      "swc_id": "SWC-107",
+      "severity": "high",
+      "location": "withdrawAll() function, lines 13-22",
+      "finding_ids": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "reasoning": "These findings describe the external call on line 18 followed by state access on line 20, which is a reentrancy pattern. Slither and Mythril agree on the vulnerability type.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Transaction Order Dependence in withdrawAll()",
+      "swc_id": "SWC-114",
+      "severity": "medium",
+      "location": "withdrawAll() function, line 18",
+      "finding_ids": [
+        5
+      ],
+      "reasoning": "This finding describes a race condition vulnerability related to transaction order dependence, which is distinct from reentrancy.",
+      "ethtrust_rule": "P4"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity Version",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Global, line 7",
+      "finding_ids": [
+        1,
+        2
+      ],
+      "reasoning": "Both findings highlight the use of an outdated Solidity version, which is unrelated to the other vulnerabilities.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}

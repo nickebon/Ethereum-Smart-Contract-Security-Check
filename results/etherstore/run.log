@@ -206,3 +206,108 @@ Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-v
 [15:58:25] Step 7: Updating summary.csv...
 [15:58:25] Appended entry to summary.csv
 [15:58:25] Pipeline complete (32.0s)
+[16:27:04] Pipeline started for contract: etherstore
+[16:27:04] Category: reentrancy
+[16:27:04] Contract path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/etherstore.sol
+[16:27:04] Step 1: Running auto_solc_use.sh...
+[16:27:04] solc output: [STEP] Prefetch & ensure 5 solc versions installed: 0.4.25 0.5.17 0.6.12 0.7.6 0.8.20
+  - 0.4.25 already installed (skip) [0.4.25] in 0s
+  - 0.5.17 already installed (skip) [0.5.17] in 0s
+  - 0.6.12 already installed (skip) [0.6.12] in 0s
+  - 0.7.6 already installed (skip) [0.7.6] in 0s
+  - 0.8.20 already installed (skip) [0.8.20] in 0s
+[STEP] Parse pragma
+  - pragma: pragma solidity ^0.4.10;
+  - exact : 0.4.10
+  - base  : 0.4.*  (elapsed 0s)
+[STEP] Switch solc
+  - target version: 0.4.25
+  - current solc  : solc, the solidity compiler commandline interface  (switched in 0s)
+[DONE] All steps completed in 0s
+
+[16:27:04] Step 2: Running Slither...
+[16:27:05] Slither binary used: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/.venv/bin/slither
+[16:27:05] Slither return code: 255
+[16:27:05] Slither output file path: /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/out/etherstore.slither.json
+[16:27:05] Slither output file exists: True
+[16:27:05] Slither output file size: 39135 bytes
+[16:27:05] Slither stderr: 'solc --version' running
+'solc /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/etherstore.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy' running
+
+Detector: reentrancy-eth
+Reentrancy in EtherStore.withdrawFunds(uint256) (data/capstone_dataset/reentrancy/etherstore.sol#20-30):
+	External calls:
+	- require(bool)(msg.sender.call.value(_weiToWithdraw)()) (data/capstone_dataset/reentrancy/etherstore.sol#27)
+	State variables written after the call(s):
+	- balances[msg.sender] -= _weiToWithdraw (data/capstone_dataset/reentrancy/etherstore.sol#28)
+	EtherStore.balances (data/capstone_dataset/reentrancy/etherstore.sol#14) can be used in cross function reentrancies:
+	- EtherStore.balances (data/capstone_dataset/reentrancy/etherstore.sol#14)
+	- EtherStore.depositFunds() (data/capstone_dataset/reentrancy/etherstore.sol#16-18)
+	- EtherStore.withdrawFunds(uint256) (data/capstone_dataset/reentrancy/etherstore.sol#20-30)
+	- lastWithdrawTime[msg.sender] = now (data/capstone_dataset/reentrancy/etherstore.sol#29)
+	EtherStore.lastWithdrawTime (data/capstone_dataset/reentrancy/etherstore.sol#13) can be used in cross function reentrancies:
+	- EtherStore.lastWithdrawTime (data/capstone_dataset/reentrancy/etherstore.sol#13)
+	- EtherStore.withdrawFunds(uint256) (data/capstone_dataset/reentrancy/etherstore.sol#20-30)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Detector: timestamp
+EtherStore.withdrawFunds(uint256) (data/capstone_dataset/reentrancy/etherstore.sol#20-30) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool)(now >= lastWithdrawTime[msg.sender] + 604800) (data/capstone_dataset/reentrancy/etherstore.sol#25)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: solc-version
+Version constraint ^0.4.10 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- UninitializedFunctionPointerInConstructor_0.4.x
+	- IncorrectEventSignatureInLibraries_0.4.x
+	- ExpExponentCleanup
+	- NestedArrayFunctionCallDecoder
+	- ZeroFunctionSelector
+	- DelegateCallReturnValue
+	- ECRecoverMalformedInput
+	- SkipEmptyStringLiteral
+	- ConstantOptimizerSubtraction.
+It is used by:
+	- ^0.4.10 (data/capstone_dataset/reentrancy/etherstore.sol#8)
+solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: low-level-calls
+Low level call in EtherStore.withdrawFunds(uint256) (data/capstone_dataset/reentrancy/etherstore.sol#20-30):
+	- require(bool)(msg.sender.call.value(_weiToWithdraw)()) (data/capstone_dataset/reentrancy/etherstore.sol#27)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Detector: naming-convention
+Parameter EtherStore.withdrawFunds(uint256)._weiToWithdraw (data/capstone_dataset/reentrancy/etherstore.sol#20) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: constable-states
+EtherStore.withdrawalLimit (data/capstone_dataset/reentrancy/etherstore.sol#12) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/capstone_dataset/reentrancy/etherstore.sol analyzed (1 contracts with 101 detectors), 7 result(s) found
+
+[16:27:05] Slither found 7 issues
+[16:27:05] Step 3: Running Mythril via Docker...
+[16:27:05] Detected solc version: 0.4.25
+[16:27:05] Docker command: docker run --rm -v /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check:/sb -v /tmp/solc-linux-amd64-0.4.25:/usr/local/bin/solc smartbugs/mythril:0.24.8 myth analyze /sb/data/capstone_dataset/reentrancy/etherstore.sol -o json --execution-timeout 60 --max-depth 80
+[16:27:24] Mythril found 5 issues
+[16:27:24] Step 4: Running parser...
+[16:27:24] Parser: 7 from Slither + 5 from Mythril = 12 total
+[16:27:24] Combined findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/combined/etherstore_combined.json
+[16:27:24] Step 5: Running LLM deduplication...
+[16:27:37] LLM deduplication: 5 unique vulnerabilities, 2372 tokens, $0.01021
+[16:27:37] Deduplicated findings saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/data/deduplicated/etherstore_deduplicated.json
+[16:27:37] Step 6: Writing final result JSON...
+[16:27:37] Final result saved to /Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/results/etherstore/result.json
+[16:27:37] Step 7: Updating summary.csv...
+[16:27:37] Appended entry to summary.csv
+[16:27:37] Pipeline complete (33.0s)
