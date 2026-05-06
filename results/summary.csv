@@ -1,0 +1,10 @@
+contract,category,raw_alerts,unique_vulns,reduction_pct,tokens_total,cost_usd
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,0,0,0.0,0,0.0
+etherstore,reentrancy,7,5,28.57,1747,0.008
+etherstore,reentrancy,12,5,58.33,2298,0.00965

@@ -1,0 +1,79 @@
+{
+  "contract": "etherstore",
+  "category": "reentrancy",
+  "contract_path": "/Users/nickebon/Documents/uni/autumn 2026/capstone/sc-synthesis/Ethereum-Smart-Contract-Security-Check/archive/contracts/contracts/etherstore.sol",
+  "raw_alert_count": 12,
+  "unique_vuln_count": 5,
+  "reduction_pct": 58.33,
+  "tokens_total": 2298,
+  "estimated_cost_usd": 0.00965,
+  "deduplicated_findings": [
+    {
+      "vuln_id": 1,
+      "name": "Reentrancy in withdrawFunds()",
+      "swc_id": "SWC-107",
+      "severity": "high",
+      "location": "withdrawFunds() function, lines 20-30",
+      "finding_ids": [
+        0,
+        4,
+        8,
+        9,
+        10,
+        11
+      ],
+      "reasoning": "These findings describe a reentrancy vulnerability involving an external call on line 27 followed by state changes on lines 28-29. Both tools (Slither and Mythril) agree on the issue.",
+      "ethtrust_rule": "P1"
+    },
+    {
+      "vuln_id": 2,
+      "name": "Dependence on predictable environment variable in withdrawFunds()",
+      "swc_id": "SWC-116",
+      "severity": "low",
+      "location": "withdrawFunds() function, lines 20-30",
+      "finding_ids": [
+        1,
+        7
+      ],
+      "reasoning": "Both findings highlight the use of block.timestamp for control flow decisions in the withdrawFunds() function.",
+      "ethtrust_rule": "P4"
+    },
+    {
+      "vuln_id": 3,
+      "name": "Outdated Solidity version",
+      "swc_id": "SWC-102",
+      "severity": "informational",
+      "location": "Contract-wide",
+      "finding_ids": [
+        2,
+        3
+      ],
+      "reasoning": "Both findings point to the use of an outdated Solidity version with known vulnerabilities.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 4,
+      "name": "Non-constant state variable",
+      "swc_id": null,
+      "severity": "optimization",
+      "location": "Line 12",
+      "finding_ids": [
+        6
+      ],
+      "reasoning": "This finding highlights a state variable that could be marked as constant for gas optimization.",
+      "ethtrust_rule": "P0"
+    },
+    {
+      "vuln_id": 5,
+      "name": "Improper naming convention",
+      "swc_id": null,
+      "severity": "informational",
+      "location": "Line 20",
+      "finding_ids": [
+        5
+      ],
+      "reasoning": "This finding describes a parameter that does not follow the recommended naming convention.",
+      "ethtrust_rule": "P0"
+    }
+  ]
+}
