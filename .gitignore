@@ -8,4 +8,9 @@ __pycache__/
 out/
 data/combined/temp/
 data/mythril_results/
-*.err.txt
+*.err.txt__pycache__/
+*.pyc
+.venv/
+.env
+out/
+*.err
