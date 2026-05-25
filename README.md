@@ -1,37 +1,86 @@
-# ETH Check
+# Smart Contract Security Pipeline
 
-A lightweight, locally-first Ethereum smart contract security checker that intelligently coordinates **Slither + Mythril** with sensible defaults, supports multiple `solc` environments, and offers a single-command batch processing pipeline.
-
-- **Batch scanning** flattens Solidity files and automatically switches `solc` based on file `pragma` directives (via `solc-select`)
-- **Dual Engines**: Runs Slither (static) + Mythril (symbolic) concurrently and aggregates results
-- **P-Class Mappings (15 classes)** present high-level, auditor-friendly detection outcomes
-- **Out-of-the-box Reporting**: Summary CSV + Single-file table + Markdown report
-
-> Recent batch (50 files): Mythril ≥1 trigger rate: **76%**, Slither ≥1 trigger rate: **100%**, Both ≥1 trigger rate: **100%**  
-> Primary P-classes: P1 (Reentrancy), P9 (Visibility), P8 (Unsafe Ether Handling), P10 (Cross-Functional Reentrancy)
+An AI-powered pipeline that unifies and semantically deduplicates the outputs of **Slither** and **Mythril** to produce auditor-ready vulnerability findings. Extends the ETH-Check framework (Zheng & Hu, 2025) with an LLM-based synthesis layer.
 
 ---
 
-## Why Choose This Approach Over Single Tools Like Slither/Mythril?
+## What It Does
 
-1) **Coverage**: Complementary dual engines of static analysis + symbolic execution (explainable rules + deep path exploration).  
-2) **Version Adaptation**: Automatically parses `pragma` directives, switches matching `solc` versions per file to reduce false positives/negatives.  
-3) **Reproducible Batch Processing**: Single command executes entire workflow (preparation → scanning → aggregation → reporting).  
-4) **Audit-Friendly Mapping**: Unifies scattered SWCs/detectors into 15 P categories for rapid high-level overview.  
-5) **Lightweight Local Operation**: No cloud required—scanning and statistics completed entirely on the terminal.
+Raw outputs from two security tools are normalised into a unified schema, mapped to a P-category taxonomy, and passed to GPT-4o for semantic deduplication — collapsing overlapping alerts into unique, auditor-ready findings surfaced through a Streamlit dashboard.
+
+**Evaluated across 30 labelled smart contracts (SB Curated):**
+- 190 raw alerts → 89 unique findings
+- 53.16% alert reduction
+- $0.19 USD total LLM cost
+
+---
+
+## Pipeline
+
+```
+01_prepare.py → Slither + Mythril → parser.py → llm_deduplicator.py → dashboard.py
+```
+
+1. **Preparation** — detects Solidity compiler version from pragma, flattens imports
+2. **Slither** — static analysis, JSON output
+3. **Mythril** — symbolic execution via Docker (smartbugs/mythril:0.24.8)
+4. **parser.py** — normalises both outputs into unified Finding schema, maps to P-categories
+5. **llm_deduplicator.py** — GPT-4o at temperature 0 groups overlapping alerts semantically
+6. **dashboard.py** — Streamlit UI, findings ordered by P-category and severity
 
 ---
 
 ## Repository Structure
 
-eth-check/
-├── configs/ # Configuration files (e.g., p_mapping.yaml: SWC/detector → P category mapping)
-├── scripts/ # Python utility scripts (preparation, filtering, statistics, report generation)
-├── tools/ # Terminal scripts (batch entry point, individual runners)
-├── datasets/ # Optional: sample lists (e.g., list_top5.txt)
-├── requirements.txt # Python dependencies
-└── out/ # Run outputs (automatically generated; not recommended for Git commit)
+```
+├── configs/              # p_mapping.yaml — SWC/detector → P-category mapping
+├── scripts/              # Pipeline scripts (01_prepare.py, 03_run_slither.py, 04_run_mythril.py)
+├── data/capstone_dataset/ # 30 evaluation contracts organised by DASP category
+├── results/              # Per-contract batch results (result.json, run.log)
+├── out/                  # Per-contract tool outputs (.slither.json, .myth.json)
+├── parser.py             # Output normalisation and P-category mapping
+├── llm_deduplicator.py   # LLM semantic deduplication module
+├── dashboard.py          # Streamlit dashboard
+├── run_pipeline.py       # Single-contract pipeline runner
+├── run_batch.py          # Batch runner across dataset
+└── requirements.txt
+```
 
+---
 
+## Setup
 
-Translated with DeepL.com (free version)
+```bash
+pip install -r requirements.txt
+```
+
+Requires:
+- `solc-select` for compiler version management
+- Docker (for Mythril)
+- Azure OpenAI credentials in `.env`
+
+```
+AZURE_OPENAI_ENDPOINT=...
+AZURE_OPENAI_DEPLOYMENT=...
+AZURE_OPENAI_KEY=...
+AZURE_OPENAI_API_VERSION=...
+```
+
+---
+
+## Usage
+
+**Single contract:**
+```bash
+python run_pipeline.py --contract data/capstone_dataset/reentrancy/simple_dao.sol
+```
+
+**Batch:**
+```bash
+python run_batch.py
+```
+
+**Dashboard:**
+```bash
+streamlit run dashboard.py
+```
